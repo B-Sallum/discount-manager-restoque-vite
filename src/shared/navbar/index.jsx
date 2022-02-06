@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AddProduct from '../../components/add-product-modal/add-product-modal';
+import AddProduct from '../../components/product-add-modal/product-add-modal';
 
 import Logo from '../img/logo-negativo.png';
 import './styles.css';
