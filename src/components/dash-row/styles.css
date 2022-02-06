@@ -1,0 +1,18 @@
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  width: 10rem;
+}
+
+.dash-row:nth-child(even) {
+  background: #ccc;
+}
+
+.dash-row:hover {
+  background-color: white;
+}
+
+.monospace-font {
+  font-family: 'Nova Mono', monospace;
+}

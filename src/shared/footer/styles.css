@@ -1,0 +1,22 @@
+.footer {
+  font-family: 'Segoe UI';
+  background: #000;
+  color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 1rem;
+  position: fixed;
+  bottom: 0px;
+  height: 2rem;
+  width: 100vw;
+  z-index: 10;
+}
+
+.link-golden {
+  color: #cd933e;
+}
+
+.link-blue {
+  color: #7F98DC;
+}

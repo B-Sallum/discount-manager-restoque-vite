@@ -1,0 +1,42 @@
+.wrap-modal {
+  height: 80vh;
+  max-height: 600px;
+  width: 80vw;
+  max-width: 1000px;
+  background: #eaeaea;
+  color: #000;
+  border-radius: 10px;
+  position: relative;
+  top: 1rem;
+  z-index: 2;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+}
+
+.login {
+  display: flex;
+}
+
+.login-left {
+  background-color: black;
+  border-radius: 9px 0 0 9px;
+  height: 80vh;
+  max-height: 600px;
+  width: 35vw;
+  max-width: 350px;
+}
+
+.login-left img {
+  width: 80%;
+  height: auto;
+}
+
+.login-right {
+  height: 80vh;
+  max-height: 600px;
+  width: 45vw;
+  max-width: 650px;
+}
+
+.input-login {
+  font-size: 2rem;
+}
