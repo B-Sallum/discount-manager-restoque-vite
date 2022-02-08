@@ -8,7 +8,7 @@ import Login from './components/login';
 import LoginMessage from './shared/login-message';
 import Dashboard from './components/dashboard/dashboard';
 import AboutUs from './pages/about-us';
-import Splash from './shared/splash-screen';
+// import Splash from './shared/splash-screen';
 
 import './App.css';
 
@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Splash />
+      {/* <Splash /> */}
         { login ? <NavBar /> : <LoginMessage /> }
         <div className='main'>
           <Routes>

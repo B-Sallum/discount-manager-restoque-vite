@@ -12,37 +12,49 @@ import './styles.css';
 
 const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
 
+  const [griffe, setGriffe] = ('');
   const [code, setCode] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [collection, setCollection] = useState('');
-  // const [griffe, setGriffe] = useState('');
-  // const [stock, setStock] = useState('');
-  // const [active, setActive] = useState('');
-  
   const [price, setPrice] = useState('');
   const [discount, setDiscount] = useState('');
   const [finalPrice, setFinalPrice] = useState('');
+
+  const handleGriffe = () => {
+    
+  }
 
   return (
     <>
       {showFnAdd ? (
         <div className='modal-bg'>
           <form className='wrap-modal card-add flex-ctr col'>
-            <div className='griffe'>
+            <div className='flex-ctr griffe wrap'>
               <img src={Bobo} alt='Logo Bo.Bô'
-              className='img-input'/>
-              <img src={Bobo} alt='Logo Bo.Bô'
-              className='img-input'/>
-              <img src={Bobo} alt='Logo Bo.Bô'
-              className='img-input'/>
-              <img src={Bobo} alt='Logo Bo.Bô'
-              className='img-input'/>
-              <img src={Bobo} alt='Logo Bo.Bô'
-              className='img-input'/>
-              <img src={Bobo} alt='Logo Bo.Bô'
-              className='img-input'/>
-
+                className='img-input' id='bobo'
+                onClick={handleGriffe(1)}
+              />
+              <img src={Dudalina} alt='Logo Dudalina'
+                className='img-input' id='dudalina'
+                onClick={handleGriffe(2)}
+              />
+              <img src={Individual} alt='Logo Individual'
+                  className='img-input' id='individual'
+                  onClick={handleGriffe(3)}
+              />
+              <img src={John} alt='Logo John John'
+                className='img-input' id='john'
+                onClick={handleGriffe(4)}
+              />
+              <img src={Lelis} alt='Logo Le Lis Blanc'
+                className='img-input' id='lelis'
+                onClick={handleGriffe(5)}
+              />
+              <img src={Rosa} alt='Logo Rosa Chá'
+                className='img-input' id='rosa'
+                onClick={handleGriffe(6)}
+              />
             </div>
             <div className='flex-ctr wrap'>
               <div className='div-input'>

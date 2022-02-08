@@ -31,3 +31,11 @@ textarea {
 .img-input:hover {
   opacity: 1;
 }
+
+.griffe {
+  height: 70px;
+}
+
+#selected {
+  opacity: 1;
+}

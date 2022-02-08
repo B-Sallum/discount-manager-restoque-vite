@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AddProduct from '../../components/product/product-modal';
+import AddProduct from '../../components/product/product-add-modal';
 
 import Logo from '../img/logo-restoque.png';
 import './styles.css';
