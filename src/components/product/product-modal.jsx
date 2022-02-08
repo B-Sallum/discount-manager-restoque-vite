@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import ModalAdd from "../product-add-form/product-add-form";
+import ModalAdd from "./product-add";
 import "./styles.css"
 
 const AddProduct = () => {
-  const [showFnAdd, setShowFnAdd] = useState(false);
+  const [showFnAdd, setShowFnAdd] = useState(true);
 
   return (
     <>

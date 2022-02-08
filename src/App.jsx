@@ -6,9 +6,9 @@ import NavBar from './shared/navbar';
 import Footer from './shared/footer';
 import Login from './components/login';
 import LoginMessage from './shared/login-message';
-import Dashboard from './components/dashboard';
+import Dashboard from './components/dashboard/dashboard';
 import AboutUs from './pages/about-us';
-import Loader from './components/loader';
+import Splash from './shared/splash-screen';
 
 import './App.css';
 
@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Loader />
+      <Splash />
         { login ? <NavBar /> : <LoginMessage /> }
         <div className='main'>
           <Routes>

@@ -1,5 +1,5 @@
 import React from 'react';
-import AboutCard from '../../components/about-card/about-card';
+import AboutCard from '../../components/about/about-card';
 
 import './styles.css';
 

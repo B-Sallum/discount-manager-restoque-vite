@@ -1,8 +1,8 @@
 import React from 'react';
 
-import AddProduct from '../../components/product-add-modal/product-add-modal';
+import AddProduct from '../../components/product/product-modal';
 
-import Logo from '../img/logo-negativo.png';
+import Logo from '../img/logo-restoque.png';
 import './styles.css';
 
 function NavBar() {

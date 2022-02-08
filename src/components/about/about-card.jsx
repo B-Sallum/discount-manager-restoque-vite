@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AboutModal from '../about-modal/about-modal';
+import AboutModal from './about-modal';
 import "./styles.css";
 
 const AboutCard = ({ name, picture, style }) => {

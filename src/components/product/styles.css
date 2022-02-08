@@ -1,0 +1,33 @@
+.div-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-add {
+  border: 6px solid #cd933e;
+}
+
+.product-name {
+  width: 45vw;
+}
+
+textarea {
+  border: 1px solid #cd933e;
+  border-bottom: 2px solid #cd933e;
+  overflow-y: auto;
+  resize: none;
+  height: 5rem;
+  width: 45vw;
+  padding: 0px 3px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.img-input {
+  cursor: pointer;
+  opacity: 0.5;
+  width: 80px;
+}
+
+.img-input:hover {
+  opacity: 1;
+}

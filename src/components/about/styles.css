@@ -64,3 +64,26 @@
   padding: 0;
   z-index: 10;
 }
+
+.quadro {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: #000000;
+}
+
+.card-pic {
+  border-radius: 100%;
+  border-style: solid;
+  border-width: thick;
+  border-color: #cd933e;
+  height: 20vh;
+  width: auto;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}

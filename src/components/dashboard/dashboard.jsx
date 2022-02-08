@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 import api from '../../auth/api';
-import DashRow from '../dash-row';
+import DashRow from './dash-row';
 
 import './styles.css';
 

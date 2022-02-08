@@ -2,22 +2,22 @@ import React from 'react';
 import './styles.css';
 import { useState, useEffect } from 'react';
 
-import Logo from '../../shared/img/logo-negativo.png';
+import Logo from '../../shared/img/logo-restoque.png';
 
-const Loader = () => {
+const Splash = () => {
 
-  const [loader, setLoader] = useState(true);
+  const [splash, setSplash] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
-      setLoader(false)
+      setSplash(false)
     }, 5000);
   })
 
   return (
     <>
       {
-        loader ? (
+        splash ? (
           <div className='initial-loading fade-out-fwd flex-ctr'>
           <img src={Logo} alt='Logo Restoque' className='logo-load swing-in-top-fwd' />
         </div> 
@@ -27,4 +27,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default Splash;
