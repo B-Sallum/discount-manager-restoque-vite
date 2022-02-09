@@ -8,9 +8,9 @@ import './styles.css';
 function NavBar() {
 
   return (
-    <div className='navBar'>
+    <div className="navBar">
       <AddProduct />
-      <img src={Logo} alt='Logo Restoque' className='logo-nav'/> 
+      <img src={Logo} alt="Logo Restoque" className="logo-nav"/> 
     </div>
   );
 };

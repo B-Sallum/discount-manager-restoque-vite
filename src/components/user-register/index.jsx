@@ -30,28 +30,28 @@ const UserRegister = () => {
   }
 
   return (
-    <div className='flex-ctr col margin1'>
-      <div className='back'></div>
-      <div className='margin1'><h2>Register</h2></div>
-      <form onSubmit={handleSubmit} className='flex-ctr col'>
+    <div className="flex-ctr col margin1">
+      <div className="back"></div>
+      <div className="margin1"><h2>Register</h2></div>
+      <form onSubmit={handleSubmit} className="flex-ctr col">
 
-        <input type='text' name='name' required
+        <input type="text" name="name" required
           onChange={event => setName(event.target.value)}
         />
 
-        <input type='text' name='email' required
+        <input type="text" name="email" required
           onChange={event => setEmail(event.target.value)}
         />
 
-        <input type='password' name='pass' required
+        <input type="password" name="pass" required
           onChange={event => setPass(event.target.value)}
         />
 
-        <input type='password' name='passConfirm' required
+        <input type="password" name="passConfirm" required
           onChange={event => setPassConfirm(event.target.value)}
         />
 
-        <button type='submit' className='button1 margin1'><h3>Submit</h3></button>
+        <button type="submit" className="button1 margin1"><h3>Submit</h3></button>
       </form>
     </div>
   )

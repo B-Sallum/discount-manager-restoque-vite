@@ -20,10 +20,10 @@ const App = () => {
     <BrowserRouter>
       {/* <Splash /> */}
         { login ? <NavBar /> : <LoginMessage /> }
-        <div className='main'>
+        <div className="main">
           <Routes>
-            <Route path='/' element={login ? <Dashboard /> : <Login />} />
-            <Route path='/about' element={<AboutUs />} />
+            <Route path="/" element={login ? <Dashboard /> : <Login />} />
+            <Route path="/about" element={<AboutUs />} />
           </Routes>
         </div>
       <Footer />

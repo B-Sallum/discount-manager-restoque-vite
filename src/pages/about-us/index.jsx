@@ -5,20 +5,20 @@ import './styles.css';
 
 const AboutUs = () => {
   return (
-    <div className='about-us'>
+    <div className="about-us">
       <AboutCard
-        key={'Brabra'}
-        name={'Brayan Hen'}
+        key={"Brabra"}
+        name={"Brayan Hen"}
         picture={"https://i.imgur.com/UfiGsb0.jpg"}
       />
       <AboutCard
-        key={'Brabra'}
-        name={'Brayan Hen'}
+        key={"Brabra"}
+        name={"Brayan Hen"}
         picture={"https://i.imgur.com/UfiGsb0.jpg"}
       />
       <AboutCard
-        key={'Brabra'}
-        name={'Brayan Hen'}
+        key={"Brabra"}
+        name={"Brayan Hen"}
         picture={"https://i.imgur.com/UfiGsb0.jpg"}
       />
     </div>

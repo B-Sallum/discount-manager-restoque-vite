@@ -5,24 +5,24 @@ import './styles.css';
 const Footer = () => {
 
   return (
-    <div className='footer'>
+    <div className="footer">
       <h5>
           Site desenvolvido pela 
 
-        <Link to={'/about'} className='link-golden'>
+        <Link to={"/about"} className="link-golden">
           &nbsp;Equipe 06  
         </Link>
           &nbsp;- Classe 007 @&nbsp;
-        <a href='https://blueedtech.com.br/quem-somos/'
+        <a href="https://blueedtech.com.br/quem-somos/"
         target="_blank" rel="noopener noreferrer"
-        className='link-blue'
+        className="link-blue"
         >
           Blue Edtech 
         </a>
           &nbsp;para&nbsp;
-        <a href='https://www.restoque.com.br/#quem-somos'
+        <a href="https://www.restoque.com.br/#quem-somos"
         target="_blank" rel="noopener noreferrer"
-        className='link-golden'
+        className="link-golden"
         >
           Restoque&reg;
         </a>

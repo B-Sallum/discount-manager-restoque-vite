@@ -39,17 +39,17 @@ const Login = () => {
   return (
     <section className="modal-bg">
       <div className="wrap-modal">
-        <div className='login'>
-          <div className='login-left flex-ctr'>
+        <div className="login">
+          <div className="login-left flex-ctr">
             <img
               src={Logo}
               alt="Logo Restoque"
             />
           </div>
-          <div className='login-right flex-ctr col'>
+          <div className="login-right flex-ctr col">
             <h3>Digite seus dados</h3>
-            <form className='form-login flex-ctr col'>
-              <div className='input-login flex-ctr'>
+            <form className="form-login flex-ctr col">
+              <div className="input-login flex-ctr">
                 <FaUserTie />
                 <input required type="email"
                   className="email"
@@ -57,7 +57,7 @@ const Login = () => {
                   onChange={(event) => setUser(event.target.value)}
                 />
               </div>
-              <div className='input-login flex-ctr'>
+              <div className="input-login flex-ctr">
                 <BsFillLockFill />
                 <input required type="password"
                   className="form-senha"

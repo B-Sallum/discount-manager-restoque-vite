@@ -29,13 +29,15 @@ textarea {
 }
 
 .img-input:hover {
+  border-bottom: 2px solid #cd933e;
   opacity: 1;
 }
 
 .griffe {
-  height: 70px;
+  height: 82px;
 }
 
 #selected {
+  border-bottom: 2px solid #cd933e;
   opacity: 1;
 }

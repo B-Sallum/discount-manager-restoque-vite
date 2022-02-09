@@ -51,6 +51,7 @@ button {
   height: 80vh;
   width: 80vw;
   max-width: 1000px;
+  max-height: 600px;
   background: #eaeaea;
   color: #000;
   border-radius: 10px;

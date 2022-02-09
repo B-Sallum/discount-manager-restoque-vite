@@ -12,5 +12,5 @@ ReactDOM.render(
       <App />
     </LoginProvider>    
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

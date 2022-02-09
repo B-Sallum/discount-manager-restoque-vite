@@ -40,16 +40,16 @@ const Dashboard = () => {
   
   return (
     <>
-      <div className='dash-nav'>
-        <input type='text' autoFocus
+      <div className="dash-nav">
+        <input type="text" autoFocus
           onChange={(event) => {
             setSearch(event.target.value)
           }}
         />
       </div>
       <table>
-        <thead className='table-top'>
-          <tr className='table-top'>
+        <thead className="table-top">
+          <tr className="table-top">
             <th>Código</th>
             <th>Nome</th>
             <th>Valor</th>

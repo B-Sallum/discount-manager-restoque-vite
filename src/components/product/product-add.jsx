@@ -13,37 +13,34 @@ import './styles.css';
 
 const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
 
-  // const [griffe, setGriffe] = ('');
   const [code, setCode] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [collection, setCollection] = useState('');
-  const [price, setPrice] = useState('');
-  const [discount, setDiscount] = useState('');
-  const [finalPrice, setFinalPrice] = useState('');
-
-  const handleGriffe = () => {
-    //ref
-    //stock
-    //active
-  }
+  const [griffe, setGriffe] = useState('');
+  const [price, setPrice] = useState();
+  const [discount, setDiscount] = useState();
+  const [finalPrice, setFinalPrice] = useState();
 
   const newProduct = {
     code: code,
     name: name,
     description: description,
     collection: collection,
-    griffe: 'Bo.Bô',
+    griffe: griffe,
     stock: true,
     active: true,
-    price: price,
-    discount: discount,
-    finalPrice: finalPrice
+    price: parseFloat(price),
+    discount: parseFloat(discount),
+    finalPrice: parseFloat(finalPrice)
   }
 
   const handleSubmit = async (Event) => {
     Event.preventDefault();
-    console.log(newProduct);
+    // const token = localStorage.token;
+    // const config = {
+    //   headers: { Authorization: `Bearer ${token}` }
+    // }
     await api.post('/products', newProduct)
       .then(() => alert('Produto cadastrado com sucesso'))
       .catch(() => alert('Ocorreu um erro, por favor tente novamente'));
@@ -52,130 +49,126 @@ const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
   return (
     <>
       {showFnAdd ? (
-        <div className='modal-bg'>
-          <form className='wrap-modal card-add flex-ctr col'
+        <div className="modal-bg">
+          <form className="wrap-modal card-add flex-ctr col"
           onSubmit={handleSubmit}>
-            <div className='flex-ctr griffe wrap'>
-              <img src={Bobo} alt='Logo Bo.Bô'
-                className='img-input' id='bobo'
-                // onClick={handleGriffe(1)}
+
+            <div className="flex-ctr griffe wrap">
+
+              <img src={Bobo} alt="Logo Bo.Bô"
+                className="img-input"
+                onClick={() => setGriffe("Bo.Bô")}
+                id={`${griffe === "Bo.Bô" ? "selected" : null}`}
               />
-              <img src={Dudalina} alt='Logo Dudalina'
-                className='img-input' id='dudalina'
-                // onClick={handleGriffe(2)}
+
+              <img src={Dudalina} alt="Logo Dudalina"
+                className="img-input"
+                onClick={() => setGriffe("Dudalina")}
+                id={`${griffe === "Dudalina" ? "selected" : null}`}
               />
-              <img src={Individual} alt='Logo Individual'
-                  className='img-input' id='individual'
-                  // onClick={handleGriffe(3)}
+
+              <img src={Individual} alt="Logo Individual"
+                  className="img-input"
+                  onClick={() => setGriffe("Individual")}
+                  id={`${griffe === "Individual" ? "selected" : null}`}
               />
-              <img src={John} alt='Logo John John'
-                className='img-input' id='john'
-                // onClick={handleGriffe(4)}
+
+              <img src={John} alt="Logo John John"
+                className="img-input"
+                onClick={() => setGriffe("John John")}
+                id={`${griffe === "John John" ? "selected" : null}`}
               />
-              <img src={Lelis} alt='Logo Le Lis Blanc'
-                className='img-input' id='lelis'
-                // onClick={handleGriffe(5)}
+
+              <img src={Lelis} alt="Logo Le Lis Blanc"
+                className="img-input"
+                onClick={() => setGriffe("Le Lis Blanc")}
+                id={`${griffe === "Le Lis Blanc" ? "selected" : null}`}
               />
-              <img src={Rosa} alt='Logo Rosa Chá'
-                className='img-input' id='rosa'
-                // onClick={handleGriffe(6)}
+
+              <img src={Rosa} alt="Logo Rosa Chá"
+                className="img-input"
+                onClick={() => setGriffe("Rosa Chá")}
+                id={`${griffe === "Rosa Chá" ? "selected" : null}`}
               />
+
             </div>
-            <div className='flex-ctr wrap'>
-              <div className='div-input'>
+
+            <div className="flex-ctr wrap">
+              <div className="div-input">
                 <label>Código</label>
                 <input required
-                  type='text'
-                  placeholder='12.12.1234'
-                  onChange={setCode}
+                  type="text"
+                  placeholder="12.12.1234"
+                  onChange={e => setCode(e.target.value)}
                 />
               </div>
-            <div className='div-input'>
-              <label>Coleção</label>
-              <input required
-                type='text'
-                onChange={setCollection}
-              />
-            </div>
+
+              <div className="div-input">
+                <label>Coleção</label>
+                <input required
+                  type="text"
+                  onChange={e => setCollection(e.target.value)}
+                />
+              </div>
             </div>
 
-            <div className='div-input'>
+            <div className="div-input">
               <label>Nome</label>
               <input required
-              className='product-name'
-                type='text'
-                placeholder='BODY BO.BÔ TRICOT ISADORA FEMININO'
-                onChange={setName}
+              className="product-name"
+                type="text"
+                placeholder="BODY BO.BÔ TRICOT ISADORA FEMININO"
+                onChange={e => setName(e.target.value)}
               />
             </div>
 
-            {/* <div className='flex-ctr'>
-              <p>Em estoque:</p>
-              <div>
-                <input className='yes' type='radio' value='sim' />
-                <label htmlFor='yes'>Sim</label>
-              </div>
-              <div>
-                <input className='no' type='radio' value='nao' />
-                <label htmlFor='no'>Não</label>
-              </div>
-            </div>
-            <div className='flex-ctr'>
-              <p>Produto ativo:</p>
-              <div>
-                <input className='yes' type='radio' value='sim' />
-                <label htmlFor='yes1'>
-                  Sim
-                </label>
-              </div>
-              <div>
-                <input className='no' type='radio' value='nao' />
-                <label htmlFor='no1'>
-                  Não
-                </label>
-              </div>
-            </div> */}
-            <div className='div-input'>
+            <div className="div-input">
               <label>Descrição</label>
               <textarea required
-                type='text'
-                placeholder='Confeccionado em tricot com detalhes vazados, o Body possui caimento ajustado, decote um ombro só, pala frontal com leve babado, manga longa e parte inferior com fechamento por botões de pressão. '
-                onChange={setDescription}
+                type="text"
+                placeholder="Confeccionado em tricot com detalhes vazados, o Body possui caimento ajustado, decote um ombro só, pala frontal com leve babado, manga longa e parte inferior com fechamento por botões de pressão. "
+                onChange={e => setDescription(e.target.value)}
               />
             </div>
-            <div className='flex-ctr wrap'>
-              <div className='div-input'>
+
+            <div className="flex-ctr wrap">
+              <div className="div-input">
                 <label>Preço</label>
                 <input required
-                  className='input_number'
-                  type='number'
-                  placeholder='Valor original'
-                  onChange={setPrice}
+                  className="input_number"
+                  type="number"
+                  placeholder="Valor original"
+                  onChange={e => setPrice(e.target.value)}
                 />
               </div>
-              <div className='div-input'>
+
+              <div className="div-input">
                 <label>Desconto</label>
                 <input required
-                  className='input_number'
-                  type='number'
-                  placeholder='Desconto'
-                  onChange={setDiscount}
+                  className="input_number"
+                  type="number"
+                  placeholder="Desconto"
+                  onChange={e => setDiscount(e.target.value)}
                 />
               </div>
-              <div className='div-input'>
+
+              <div className="div-input">
                 <label>Preço final</label>
                 <input required
-                  className='input_number'
-                  type='number'
-                  placeholder='Valor com desconto'
-                  onChange={setFinalPrice}
+                  className="input_number"
+                  type="number"
+                  placeholder="Valor com desconto"
+                  onChange={e => setFinalPrice(e.target.value)}
                 />
               </div>
-            </div>            
-            <button type='submit'>Adicionar</button>
+              
+            </div>          
+
+            <button type="submit">Adicionar</button>
+
             <AiFillCloseCircle
-              aria-label='close modal'
-              className='close-modal'
+              aria-label="close modal"
+              className="close-modal"
               onClick={() => setShowFnAdd(false)}
             />
           </form>
