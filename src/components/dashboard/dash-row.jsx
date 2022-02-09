@@ -12,15 +12,16 @@ const DashRow = (product) => {
       <td>
         {product.name}
       </td>
+      <td className='monospace-font'>
+        {product.price}
+      </td>
       <td>
         {product.discount}
       </td>
       <td className='monospace-font'>
         {product.finalPrice}
       </td>
-      <td className='monospace-font'>
-        {product.price}
-      </td>
+
       <td>
         {product.griffe}
       </td>

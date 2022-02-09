@@ -48,13 +48,13 @@ const Dashboard = () => {
         />
       </div>
       <table>
-        <thead>
-          <tr>
+        <thead className='table-top'>
+          <tr className='table-top'>
             <th>Código</th>
             <th>Nome</th>
-            <th>% OFF</th>
-            <th>Valor OFF</th>
             <th>Valor</th>
+            <th>% OFF</th>
+            <th>Valor OFF</th> 
             <th>Griffe</th>
             <th>Coleção</th>
             <th>Ações</th>
