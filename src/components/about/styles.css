@@ -50,21 +50,6 @@
   font-size: 2vw;
 }
 
-.close-modal {
-  cursor: pointer;
-  position: absolute;
-  display: flex;
-
-  top: 0;
-  right: 0;
-  right: 20px;
-  width: 32px;
-  height: 32px;
-  size: 3rem;
-  padding: 0;
-  z-index: 10;
-}
-
 .quadro {
   display: flex;
   justify-content: flex-start;

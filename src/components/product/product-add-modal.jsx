@@ -3,7 +3,7 @@ import ModalAdd from "./product-add";
 import "./styles.css"
 
 const AddProduct = () => {
-  const [showFnAdd, setShowFnAdd] = useState(true);
+  const [showFnAdd, setShowFnAdd] = useState(false);
 
   return (
     <>

@@ -5,7 +5,7 @@ import './styles.css';
 function LoginMessage() {
 
   return (
-    <div className="login-message">
+    <div className="navBar login-message">
       <h4>Acesso restrito. Por favor faça login para continuar.</h4> 
     </div>
   );

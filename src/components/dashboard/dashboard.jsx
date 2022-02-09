@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 import api from '../../auth/api';
+import AddProduct from '../product/product-add-modal';
 import DashRow from './dash-row';
 
 import './styles.css';
@@ -46,6 +47,7 @@ const Dashboard = () => {
             setSearch(event.target.value)
           }}
         />
+        <AddProduct />
       </div>
       <table>
         <thead className="table-top">

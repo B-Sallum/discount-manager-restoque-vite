@@ -1,4 +1,4 @@
-.login-message {
+.navBar {
   background: #000;
   color: beige;
   height: 3rem;
@@ -6,6 +6,19 @@
   z-index: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 0px 7px;
+}
+
+.login-message {
+  justify-content: center;
+}
+
+.logo-nav {
+  height: 2rem;
+  width: auto;
+}
+
+.nav-icons {
+  font-size: 2rem;
 }

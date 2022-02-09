@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import api from '../../auth/api';
 
 import Bobo from '../../shared/img/logo-bobo.png';
@@ -18,9 +17,9 @@ const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
   const [description, setDescription] = useState('');
   const [collection, setCollection] = useState('');
   const [griffe, setGriffe] = useState('');
-  const [price, setPrice] = useState();
-  const [discount, setDiscount] = useState();
-  const [finalPrice, setFinalPrice] = useState();
+  const [price, setPrice] = useState('');
+  const [discount, setDiscount] = useState('');
+  const [finalPrice, setFinalPrice] = useState('');
 
   const newProduct = {
     code: code,
@@ -33,14 +32,13 @@ const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
     price: parseFloat(price),
     discount: parseFloat(discount),
     finalPrice: parseFloat(finalPrice)
-  }
+  };
 
-  const handleSubmit = async (Event) => {
-    Event.preventDefault();
-    // const token = localStorage.token;
-    // const config = {
-    //   headers: { Authorization: `Bearer ${token}` }
-    // }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (griffe === '') {
+      return alert('Por favor escolha a marca')
+    };
     await api.post('/products', newProduct)
       .then(() => alert('Produto cadastrado com sucesso'))
       .catch(() => alert('Ocorreu um erro, por favor tente novamente'));
@@ -54,7 +52,6 @@ const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
           onSubmit={handleSubmit}>
 
             <div className="flex-ctr griffe wrap">
-
               <img src={Bobo} alt="Logo Bo.Bô"
                 className="img-input"
                 onClick={() => setGriffe("Bo.Bô")}
@@ -90,14 +87,12 @@ const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
                 onClick={() => setGriffe("Rosa Chá")}
                 id={`${griffe === "Rosa Chá" ? "selected" : null}`}
               />
-
             </div>
 
             <div className="flex-ctr wrap">
               <div className="div-input">
                 <label>Código</label>
-                <input required
-                  type="text"
+                <input required type="text"
                   placeholder="12.12.1234"
                   onChange={e => setCode(e.target.value)}
                 />
@@ -105,8 +100,7 @@ const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
 
               <div className="div-input">
                 <label>Coleção</label>
-                <input required
-                  type="text"
+                <input required type="text"
                   onChange={e => setCollection(e.target.value)}
                 />
               </div>
@@ -114,9 +108,8 @@ const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
 
             <div className="div-input">
               <label>Nome</label>
-              <input required
-              className="product-name"
-                type="text"
+              <input required type="text"
+                className="product-name"
                 placeholder="BODY BO.BÔ TRICOT ISADORA FEMININO"
                 onChange={e => setName(e.target.value)}
               />
@@ -124,8 +117,7 @@ const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
 
             <div className="div-input">
               <label>Descrição</label>
-              <textarea required
-                type="text"
+              <textarea required type="text"
                 placeholder="Confeccionado em tricot com detalhes vazados, o Body possui caimento ajustado, decote um ombro só, pala frontal com leve babado, manga longa e parte inferior com fechamento por botões de pressão. "
                 onChange={e => setDescription(e.target.value)}
               />
@@ -167,9 +159,11 @@ const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
             <button type="submit">Adicionar</button>
 
             <AiFillCloseCircle
-              aria-label="close modal"
               className="close-modal"
-              onClick={() => setShowFnAdd(false)}
+              onClick={() => {
+                setGriffe('');
+                setShowFnAdd(false);
+              }}
             />
           </form>
         </div>

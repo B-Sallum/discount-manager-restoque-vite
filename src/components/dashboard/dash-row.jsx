@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FaEdit, FaTrashAlt } from 'react-icons/fa';
+import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 import './styles.css';
 
 const DashRow = (product) => {
@@ -21,7 +21,6 @@ const DashRow = (product) => {
       <td className="monospace-font">
         {product.finalPrice}
       </td>
-
       <td>
         {product.griffe}
       </td>
