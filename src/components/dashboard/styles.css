@@ -22,9 +22,32 @@ thead {
 
 td {
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
-  width: 10rem;
+}
+
+.dash-value {
+  width: 120px;
+}
+
+.dash-griffe {
+  width: 150px;
+}
+
+.dash-actions {
+  width: 60px;
+}
+
+.actions {
+  background-color: #00000000;
+  color: #0c0c0c;
+  padding: 0px;
+}
+
+.dash-row svg {
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0px 3px;
 }
 
 .dash-row:nth-child(even) {
@@ -38,4 +61,3 @@ td {
 .monospace-font {
   font-family: 'Nova Mono', monospace;
 }
-

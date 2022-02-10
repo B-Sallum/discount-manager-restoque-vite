@@ -1,19 +1,47 @@
 import React from 'react';
-import AddProduct from '../../components/product/product-add-modal';
 
 import Logo from '../img/logo-restoque.png';
-import { FaSignOutAlt } from "react-icons/fa";
+import { FaSignOutAlt, FaHome } from "react-icons/fa";
 import './styles.css';
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
 
+  const navigate = useNavigate();
+
+  const logout = () => {
+    delete localStorage.token;
+    location.reload(true);
+  }
+
   return (
     <div className="navBar">
-      <img src={Logo} alt="Logo Restoque" className="logo-nav"/>
-      
-      <button>
-        Sair <FaSignOutAlt />
-      </button>
+      <div className="flex-ctr">
+        <img src={Logo} alt="Logo Restoque" className="logo-nav"/>
+      </div>
+
+        <button onClick={() => navigate("/")}>
+          <div className="flex-ctr">
+            <FaHome />
+            Início
+          </div>
+        </button>
+
+        <button onClick={() => navigate("/")}>
+          <div className="flex-ctr">
+            <FaHome />
+            Painel Administrativo
+          </div>
+        </button>
+
+        <button onClick={() => logout()}>
+          <div className="flex-ctr">
+            Logout
+            <FaSignOutAlt />
+          </div>
+        </button>
+
+
     </div>
   );
 };

@@ -28,8 +28,12 @@ const DashRow = (product) => {
         {product.collection}
       </td>
       <td>
-        <FaEdit />
-        <FaTrashAlt />
+        <button className="actions">
+          <FaEdit />
+        </button>
+        <button className="actions">
+          <FaTrashAlt />
+        </button>
       </td>
     </tr>
   );

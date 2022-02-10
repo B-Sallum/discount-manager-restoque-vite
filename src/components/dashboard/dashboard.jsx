@@ -46,20 +46,21 @@ const Dashboard = () => {
           onChange={(event) => {
             setSearch(event.target.value)
           }}
+          placeholder=""
         />
         <AddProduct />
       </div>
       <table>
         <thead className="table-top">
           <tr className="table-top">
-            <th>Código</th>
+            <th className="dash-value">Código</th>
             <th>Nome</th>
-            <th>Valor</th>
-            <th>% OFF</th>
-            <th>Valor OFF</th> 
-            <th>Griffe</th>
-            <th>Coleção</th>
-            <th>Ações</th>
+            <th className="dash-value">Valor</th>
+            <th className="dash-value">% OFF</th>
+            <th className="dash-value">Valor OFF</th> 
+            <th className="dash-griffe">Griffe</th>
+            <th className="dash-griffe">Coleção</th>
+            <th className="dash-actions">Ações</th>
           </tr>
         </thead>
         <tbody>

@@ -20,20 +20,21 @@ const Login = () => {
 
     const login = { email: user, pass: pass };
 
-    api.post('/auth/login', login)
-    .then((res) => {
-      const token = res.data.token;
-      localStorage.setItem('token', token);
-      setLogin(true);
-      
-      if (res.data.user.admin) {
-        localStorage.setItem('admin', true);
-        setAdmin(true);
-      }
-    })
-    .catch((err) => {
-      alert(err);
-    });
+    api
+      .post('/auth/login', login)
+      .then((res) => {
+        const token = res.data.token;
+        localStorage.setItem('token', token);
+        setLogin(true);
+        
+        if (res.data.user.admin) {
+          localStorage.setItem('admin', true);
+          setAdmin(true);
+        }
+      })
+      .catch((err) => {
+        alert(err);
+      });
   };
 
   return (
