@@ -12,13 +12,8 @@ const Dashboard = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const token = localStorage.token;
-    const config = {
-      headers: { Authorization: `Bearer ${token}`}
-    }
-
     api
-      .get('/products', config)
+      .get('/products')
       .then((response) => {
         setProducts(response.data);
       });
@@ -65,7 +60,7 @@ const Dashboard = () => {
         </thead>
         <tbody>
           { 
-            products.filter(product).map(product => {
+            products.filter(product).reverse().map(product => {
               return (
                 <DashRow key={product.code}
                   code={product.code}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Logo from '../img/logo-restoque.png';
-import { FaSignOutAlt, FaHome } from "react-icons/fa";
+import { FaSignOutAlt, FaHome, FaSlidersH } from "react-icons/fa";
 import './styles.css';
 import { useNavigate } from "react-router-dom";
 
@@ -29,7 +29,7 @@ function NavBar() {
 
         <button onClick={() => navigate("/")}>
           <div className="flex-ctr">
-            <FaHome />
+            <FaSlidersH />
             Painel Administrativo
           </div>
         </button>

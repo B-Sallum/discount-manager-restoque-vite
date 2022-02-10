@@ -40,7 +40,9 @@ const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
       return alert('Por favor escolha a marca')
     };
     await api.post('/products', newProduct)
-      .then(() => alert('Produto cadastrado com sucesso'))
+      .then(() => {
+        setShowFnAdd(false);
+      })
       .catch(() => alert('Ocorreu um erro, por favor tente novamente'));
   };
 
