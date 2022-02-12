@@ -68,6 +68,7 @@ const Login = () => {
               </div>
             </form>
             <button onClick={handleSubmit}>Login</button>
+            <div><h6>Esqueci minha senha</h6></div>
           </div>
         </div>
       </div>

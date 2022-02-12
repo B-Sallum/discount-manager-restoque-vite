@@ -10,6 +10,12 @@ thead {
   height: 2rem;
 }
 
+td {
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+}
+
 .dash-nav {
   background-color: #00000080;
   display: flex;
@@ -20,10 +26,8 @@ thead {
   z-index: 1;
 }
 
-td {
-  border: 1px solid #ccc;
-  padding: 5px;
-  text-align: center;
+.dash-search {
+  width: 30vw;
 }
 
 .dash-value {
@@ -60,4 +64,47 @@ td {
 
 .monospace-font {
   font-family: 'Nova Mono', monospace;
+}
+
+.rotate-scale-up {
+	-webkit-animation: rotate-scale-up 1.5s linear infinite both;
+	        animation: rotate-scale-up 1.5s linear infinite both;
+}
+
+.margin-spinner {
+  margin-top: 10rem;
+}
+
+.spinner {
+  height: 100px;
+  width: 300px;
+}
+
+@-webkit-keyframes rotate-scale-up {
+  0% {
+    -webkit-transform: scale(1) rotateZ(0);
+            transform: scale(1) rotateZ(0);
+  }
+  50% {
+    -webkit-transform: scale(2) rotateZ(180deg);
+            transform: scale(2) rotateZ(180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateZ(360deg);
+            transform: scale(1) rotateZ(360deg);
+  }
+}
+@keyframes rotate-scale-up {
+  0% {
+    -webkit-transform: scale(1) rotateZ(0);
+            transform: scale(1) rotateZ(0);
+  }
+  50% {
+    -webkit-transform: scale(2) rotateZ(180deg);
+            transform: scale(2) rotateZ(180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateZ(360deg);
+            transform: scale(1) rotateZ(360deg);
+  }
 }
