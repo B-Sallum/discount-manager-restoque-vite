@@ -4,6 +4,14 @@ import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 import './styles.css';
 
 const DashRow = (product) => {
+
+  const formatValue = (value) => {
+    const valueFormatted = value.toLocaleString("pt-BR", {
+      style:"currency", currency:"BRL"
+    });
+    return valueFormatted;
+  };
+
   return (
     <tr className="dash-row" key={product.code}>     
       <td className="monospace-font">
@@ -13,13 +21,13 @@ const DashRow = (product) => {
         {product.name}
       </td>
       <td className="monospace-font">
-        {product.price}
+        {formatValue(product.price)}
       </td>
       <td>
-        {product.discount}
+        {product.discount} %
       </td>
       <td className="monospace-font">
-        {product.finalPrice}
+        {formatValue(product.finalPrice)}
       </td>
       <td>
         {product.griffe}

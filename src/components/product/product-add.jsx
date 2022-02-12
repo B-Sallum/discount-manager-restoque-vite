@@ -9,8 +9,11 @@ import Lelis from '../../shared/img/logo-lelis.png';
 import Rosa from '../../shared/img/logo-rosa.png';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import './styles.css';
+import { useProductsContext } from "../dashboard/dash-context";
 
 const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
+
+  const { setMount } = useProductsContext();
 
   const [code, setCode] = useState('');
   const [name, setName] = useState('');
@@ -41,6 +44,7 @@ const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
     };
     await api.post('/products', newProduct)
       .then(() => {
+        setMount(false);
         setShowFnAdd(false);
       })
       .catch(() => alert('Ocorreu um erro, por favor tente novamente'));
@@ -131,6 +135,7 @@ const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
                 <input required
                   className="input_number"
                   type="number"
+                  step="0.01"
                   placeholder="Valor original"
                   onChange={e => setPrice(e.target.value)}
                 />
@@ -151,6 +156,7 @@ const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
                 <input required
                   className="input_number"
                   type="number"
+                  step="0.01"
                   placeholder="Valor com desconto"
                   onChange={e => setFinalPrice(e.target.value)}
                 />

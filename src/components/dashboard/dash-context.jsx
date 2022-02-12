@@ -9,19 +9,23 @@ export const ProductsProvider = ({ children }) => {
   const { login } = useLoginContext();
 
   const [products, setProducts] = useState(false);
+  const [mount, setMount] = useState(false);
 
   useEffect(() => {
     if (!login) {
       return null
     };
-    api.get('/products')
+    if (!mount) {
+      api.get('/products')
       .then((response) => {
         setProducts(response.data);
       });
-  }, [login]);
+    setMount(true);
+    }
+  }, [login, mount]);
 
   return (
-    <ProductsContext.Provider value={{ products, setProducts }}>
+    <ProductsContext.Provider value={{ products, setProducts, setMount }}>
       {children}
     </ProductsContext.Provider>
   );
