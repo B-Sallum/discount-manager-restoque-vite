@@ -3,9 +3,11 @@ import { useProductsContext } from "./dash-context";
 
 import AddProduct from '../product/product-add-modal';
 import DashRow from './dash-row';
-import { FaSpinner } from "react-icons/fa";
+import Spinner from "../../shared/loaders/spinner";
 
 import './styles.css';
+import SendExcel from "../product/product-table";
+
 
 const Dashboard = () => {
 
@@ -25,7 +27,7 @@ const Dashboard = () => {
       return product;
     };
   };
-  
+
   return (
     <>
       <div className="dash-nav">
@@ -37,6 +39,7 @@ const Dashboard = () => {
           }}
         />
         <AddProduct />
+        <SendExcel />
       </div>
       {
         products ? (
@@ -75,11 +78,7 @@ const Dashboard = () => {
             </tbody>
           </table>
         ) : (
-          <div className="flex-ctr margin-spinner">
-            <div className="flex-ctr spinner">
-              <FaSpinner className="rotate-scale-up" />  Carregando dados
-            </div>
-          </div>
+          <Spinner />
         )
       }
     </>

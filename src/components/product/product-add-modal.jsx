@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FaPlus } from "react-icons/fa";
+
 import ModalAdd from "./product-add";
 import "./styles.css"
 
@@ -7,8 +9,8 @@ const AddProduct = () => {
 
   return (
     <>
-      <button onClick={() => setShowFnAdd(true)}>
-        Adicionar produto
+      <button className="flex-ctr" onClick={() => setShowFnAdd(true)}>
+        <FaPlus /> Adicionar produto
       </button>
       <ModalAdd showFnAdd={showFnAdd} setShowFnAdd={setShowFnAdd} />
     </>
