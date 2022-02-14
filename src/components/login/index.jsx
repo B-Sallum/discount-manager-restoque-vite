@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import api from '../../auth/api';
-import { useLoginContext } from '../../auth/login-context';
 
+import api from '../../auth/api';
+import { useLoginContext } from "../../hooks/login-context";
 import { FaUserTie } from "react-icons/fa";
 import { BsFillLockFill } from "react-icons/bs";
 import Logo from '../../shared/img/logo-restoque.png';

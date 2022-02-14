@@ -24,16 +24,16 @@ input::placeholder {
   opacity: 0.5;
 }
 
-button, .button {
+button {
   background-color: black;
   color: white;
+  cursor: pointer;
   padding: 10px 15px;
 }
 
-button:hover, .button:hover {
+button:hover {
   background-color: #cd933e;
   color: black;
-  cursor: pointer;
   transition: ease 0.3s;
 }
 

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { useProductsContext } from "./dash-context";
 
+import { useProductsContext } from "../../hooks/products-context";
 import AddProduct from '../product/product-add-modal';
 import DashRow from './dash-row';
 import Spinner from "../../shared/loaders/spinner";
 
 import './styles.css';
 import SendExcel from "../product/product-table";
+
 
 
 const Dashboard = () => {

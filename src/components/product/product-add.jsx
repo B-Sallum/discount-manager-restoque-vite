@@ -9,7 +9,7 @@ import Lelis from '../../shared/img/logo-lelis.png';
 import Rosa from '../../shared/img/logo-rosa.png';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import './styles.css';
-import { useProductsContext } from "../dashboard/dash-context";
+import { useProductsContext } from "../../hooks/products-context";
 
 const ModalAdd = ({ showFnAdd, setShowFnAdd }) => {
 

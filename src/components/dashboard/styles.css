@@ -32,10 +32,6 @@ td {
   width: 30vw;
 }
 
-input[type="file"] {
-  display: none;
-}
-
 .dash-value {
   width: 120px;
 }

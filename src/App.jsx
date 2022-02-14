@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useLoginContext } from './auth/login-context';
 
+import { useLoginContext } from "./hooks/login-context";
 import NavBar from './shared/navbar';
 import Footer from './shared/footer';
 import Login from './components/login';
@@ -11,6 +11,7 @@ import AboutUs from './pages/about-us';
 // import Splash from "./shared/loaders/splash";
 
 import './App.css';
+
 
 const App = () => {
 

@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import api from "../../auth/api";
-import { useLoginContext } from "../../auth/login-context";
+import api from "../auth/api";
+import { useLoginContext } from "./login-context";
 
 const ProductsContext = createContext({});
 
