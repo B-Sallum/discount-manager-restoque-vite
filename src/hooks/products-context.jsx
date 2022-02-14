@@ -13,7 +13,7 @@ export const ProductsProvider = ({ children }) => {
 
   useEffect(() => {
     if (!login) {
-      return null
+      return null;
     };
     if (!mount) {
       api.get('/products')

@@ -9,9 +9,9 @@ const Footer = () => {
       <h5>
           Site desenvolvido pela 
 
-        <Link to={"/about"} className="link-golden">
+        {/* <Link to={"/about"} className="link-golden"> */}
           &nbsp;Equipe 06  
-        </Link>
+        {/* </Link> */}
           &nbsp;- Classe 007 @&nbsp;
         <a href="https://blueedtech.com.br/quem-somos/"
         target="_blank" rel="noopener noreferrer"

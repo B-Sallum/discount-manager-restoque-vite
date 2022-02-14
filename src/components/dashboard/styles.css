@@ -11,8 +11,7 @@ thead {
 }
 
 td {
-  border: 1px solid #ccc;
-  padding: 5px;
+  padding: 0px 10px;
   text-align: center;
 }
 
@@ -37,17 +36,30 @@ td {
 }
 
 .dash-griffe {
-  width: 150px;
+  min-width: 120px;
+  width: 120px;
 }
 
 .dash-actions {
+  min-width: 70px;
+  padding: 0px;
   width: 70px;
 }
 
 .actions {
   background-color: #00000000;
   color: #0c0c0c;
+  margin: 0px 2px;
   padding: 0px;
+}
+
+.actions:hover {
+  background-color: #00000000;
+  color: #cd933e;
+}
+
+.dash-row {
+  height: 2rem;
 }
 
 .dash-row svg {
@@ -66,5 +78,10 @@ td {
 
 .monospace-font {
   font-family: 'Nova Mono', monospace;
+  max-width: 120px;
+  text-align: center;
 }
 
+.price {
+  text-align: start;
+}
