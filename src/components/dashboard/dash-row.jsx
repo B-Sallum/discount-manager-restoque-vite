@@ -1,9 +1,16 @@
 import React from 'react';
 
 import { FaBan, FaEdit } from 'react-icons/fa';
+import { useDeleteContext } from "../../contexts/delete-context";
 import './styles.css';
 
 const DashRow = (product) => {
+
+  const { setDeleteProduct } = useDeleteContext();
+
+  const handleDelete = () => {
+    setDeleteProduct(product.code);
+  };
 
   const formatValue = (value) => {
     const valueFormatted = value.toLocaleString("pt-BR", {
@@ -16,10 +23,16 @@ const DashRow = (product) => {
     <>
       <tr className="dash-row" key={product.code}>     
         <td className="dash-actions">
-          <button className="actions">
+
+          <button className="actions"
+            onClick={handleDelete}
+          >
             <FaBan />
           </button>
-          <button className="actions">
+
+          <button className="actions"
+
+          >
             <FaEdit />
           </button>
         </td>

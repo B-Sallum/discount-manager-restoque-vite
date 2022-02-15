@@ -4,7 +4,9 @@ import './styles.css';
 
 const Home = () => {
   return (
-    <div><Dashboard /></div>
+    <>
+      <Dashboard />
+    </>
   );
 };
 
