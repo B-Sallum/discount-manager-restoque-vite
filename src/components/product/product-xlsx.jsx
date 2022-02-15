@@ -8,13 +8,11 @@ const SendExcel = () => {
   const [modal, setModal] = useState(false);
   const [file, setFile] = useState('');
 
-  useEffect(() => {
-    console.log(file);
-  }, [file]);
-
-  const sendFile = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    api.post("/files/upload", file, { "Content-Type": "multipart/form-data" });
+    const formData = new FormData();
+    formData.append("file", file)
+    api.post("/upload/sendfile", formData);
   };
 
   return (
@@ -27,26 +25,17 @@ const SendExcel = () => {
           modal ? (
             <div className="modal-bg">
               <div className="wrap-modal card-add flex-ctr col">
-                <form className="flex-ctr"
-                  name="file"
-                  onSubmit={(e) => sendFile(e)}>
-                  <label className="flex-ctr button"
-                    htmlFor="select-file">
-                  </label>
+                <form className="flex-ctr" onSubmit={handleSubmit}>
                   <input
                     className="flex-ctr col"
                     type="file"
                     name="file"
                     accept=".xls, .xlsx"
-                    onChange={(event) => setFile(event.target.files[0])}
+                    onChange={(e) => setFile(e.target.files[0])}
                   />
-                  {
-                    file !== '' && (
-                      <button type="submit">
-                        Enviar
-                      </button>
-                    )
-                  }
+                  <button type="submit">
+                    Enviar
+                  </button>
                 </form>
                 <AiFillCloseCircle
                   className="close-modal"
