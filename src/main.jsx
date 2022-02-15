@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
-import { LoginProvider } from "./hooks/login-context";
-import { ProductsProvider } from "./hooks/products-context";
+import { LoginProvider } from "./contexts/login-context";
+import { ProductsProvider } from "./contexts/products-list";
 
 import './index.css';
 

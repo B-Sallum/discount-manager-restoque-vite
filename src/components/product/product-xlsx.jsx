@@ -12,7 +12,10 @@ const SendExcel = () => {
     console.log(file);
   }, [file]);
 
-
+  const sendFile = (e) => {
+    e.preventDefault();
+    api.post("/files/upload", file, { "Content-Type": "multipart/form-data" });
+  };
 
   return (
     <>
@@ -24,22 +27,27 @@ const SendExcel = () => {
           modal ? (
             <div className="modal-bg">
               <div className="wrap-modal card-add flex-ctr col">
-                <label className="flex-ctr button"
-                  htmlFor="select-file">
-                </label>
-                <input
-                  className="flex-ctr col"
-                  type="file"
-                  accept=".xls, .xlsx"
-                  onChange={(event) => setFile(event.target.files[0])}
-                />
-                {
-                  file !== '' && (
-                    <button>
-                      Enviar
-                    </button>
-                  )
-                }
+                <form className="flex-ctr"
+                  name="file"
+                  onSubmit={(e) => sendFile(e)}>
+                  <label className="flex-ctr button"
+                    htmlFor="select-file">
+                  </label>
+                  <input
+                    className="flex-ctr col"
+                    type="file"
+                    name="file"
+                    accept=".xls, .xlsx"
+                    onChange={(event) => setFile(event.target.files[0])}
+                  />
+                  {
+                    file !== '' && (
+                      <button type="submit">
+                        Enviar
+                      </button>
+                    )
+                  }
+                </form>
                 <AiFillCloseCircle
                   className="close-modal"
                   onClick={() => {

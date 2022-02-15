@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { FaBan, FaEdit } from 'react-icons/fa';
 import './styles.css';

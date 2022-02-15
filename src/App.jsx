@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { useLoginContext } from "./hooks/login-context";
+import { useLoginContext } from "./contexts/login-context";
 import NavBar from './shared/navbar';
 import Footer from './shared/footer';
 import Login from './components/login';

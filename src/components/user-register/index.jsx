@@ -8,16 +8,19 @@ const UserRegister = () => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
   const [passConfirm, setPassConfirm] = useState('');
+  
+  const register = {
+    name: name,
+    email: email,
+    pass: pass,
+    passConfirm: passConfirm,
+  }
 
   const handleSubmit = async (event) => {
-
     event.preventDefault();
 
-    const register = {
-      name: name,
-      email: email,
-      pass: pass,
-      passConfirm: passConfirm,
+    if (pass !== passConfirm) {
+      
     }
 
     await api.post('user', register)
