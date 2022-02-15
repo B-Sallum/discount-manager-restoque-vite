@@ -1,7 +1,6 @@
 import React from "react";
-import { AiFillCloseCircle } from "react-icons/ai"
+import { AiFillCloseCircle } from "react-icons/ai";
 import "./styles.css";
-
 
 const AboutModal = ({ showAbout, setShowAbout }) => {
   return (
@@ -25,8 +24,20 @@ const AboutModal = ({ showAbout, setShowAbout }) => {
                 alt="Brabala apenas"
               />
               <div className="infos">
-                <h2>Nome</h2>
-                <p></p>
+                <h2>Brayan Henrique</h2>
+                <p>
+                  {" "}
+                  Tive um pequeno contato com programação quando vi um pouco de
+                  HTML durante o curso de Web Design em 2016, na época gostei
+                  muito, porém estava totalmente focado no basquete e em me
+                  tornar um jogador profissional. Me mudei e infelizmente tive
+                  que parar de jogar, fiz o 3º ano do Ensino Médio em Santa
+                  Catarina, logo em seguida dei ingresso na faculdade de
+                  Ciências Contábeis, tranquei e fiquei uns anos um pouco
+                  perdido com o que fazer pra dar certo, até encontrar a Blue
+                  por acaso, busquei sobre o mercado e tamém sobre programação,
+                  imaginei que iria gostar desse mundo, mas não tanto assim
+                </p>
                 <div className="infos1">
                   <a href="https://github.com/brabrahen">
                     <i class="fab fa-github"></i>

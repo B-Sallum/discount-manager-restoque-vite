@@ -15,10 +15,11 @@ const AboutCard = ({ name, picture, style }) => {
         <button className="card-container" onClick={openAbout}>
           <img
             className="card-pic"
-            src={picture}
+            src={"https://i.imgur.com/ukbN5Jr.jpg"}
             alt="Card"
+            
           />
-          <h2>{name}</h2>
+          <h2 className="name_init">{name}</h2>
         </button>
       </div>
       <AboutModal showAbout={showAbout} setShowAbout={setShowAbout} />
