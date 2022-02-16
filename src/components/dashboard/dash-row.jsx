@@ -1,15 +1,16 @@
 import React from 'react';
 
 import { FaBan, FaEdit } from 'react-icons/fa';
-import { useDeleteContext } from "../../contexts/delete-context";
+import { useSwitchContext } from "../../contexts/switch-product-context";
+
 import './styles.css';
 
 const DashRow = (product) => {
 
-  const { setDeleteProduct } = useDeleteContext();
+  const { setSwitchProduct } = useSwitchContext();
 
-  const handleDelete = () => {
-    setDeleteProduct(product.code);
+  const handleSwitch = () => {
+    setSwitchProduct(product.code);
   };
 
   const formatValue = (value) => {
@@ -25,7 +26,7 @@ const DashRow = (product) => {
         <td className="dash-actions">
 
           <button className="actions"
-            onClick={handleDelete}
+            onClick={handleSwitch}
           >
             <FaBan />
           </button>
