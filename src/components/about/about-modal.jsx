@@ -1,5 +1,6 @@
 import React from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa"
 import "./styles.css";
 
 const AboutModal = ({ showAbout, setShowAbout }) => {
@@ -24,29 +25,19 @@ const AboutModal = ({ showAbout, setShowAbout }) => {
                 alt="Brabala apenas"
               />
               <div className="infos">
-                <h2>Brayan Henrique</h2>
+                <h2></h2>
                 <p>
-                  {" "}
-                  Tive um pequeno contato com programação quando vi um pouco de
-                  HTML durante o curso de Web Design em 2016, na época gostei
-                  muito, porém estava totalmente focado no basquete e em me
-                  tornar um jogador profissional. Me mudei e infelizmente tive
-                  que parar de jogar, fiz o 3º ano do Ensino Médio em Santa
-                  Catarina, logo em seguida dei ingresso na faculdade de
-                  Ciências Contábeis, tranquei e fiquei uns anos um pouco
-                  perdido com o que fazer pra dar certo, até encontrar a Blue
-                  por acaso, busquei sobre o mercado e tamém sobre programação,
-                  imaginei que iria gostar desse mundo, mas não tanto assim
+                 
                 </p>
                 <div className="infos1">
-                  <a href="https://github.com/brabrahen">
-                    <i class="fab fa-github"></i>
+                  <a href="">
+                    <FaInstagram />
                   </a>
-                  <a href="https://www.linkedin.com/in/brayan-henrique-586029180/">
-                    <i class="fab fa-linkedin"></i>
+                  <a href="">
+                    <FaLinkedin />
                   </a>
-                  <a href="https://www.instagram.com/chocottone_/">
-                    <i class="fab fa-instagram"></i>
+                  <a href="">
+                    <FaGithub />
                   </a>
                 </div>
               </div>

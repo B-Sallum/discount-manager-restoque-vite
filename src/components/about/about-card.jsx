@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AboutModal from './about-modal';
 import "./styles.css";
 
-const AboutCard = ({ name, picture, style }) => {
+const AboutCard = ({ name, picture}) => {
   const [showAbout, setShowAbout] = useState(false);
 
   const openAbout = () => {
@@ -11,11 +11,11 @@ const AboutCard = ({ name, picture, style }) => {
 
   return (
     <div className="chama">
-      <div className="quadro" style={style}>
+      <div className="quadro">
         <button className="card-container" onClick={openAbout}>
           <img
             className="card-pic"
-            src={"https://i.imgur.com/ukbN5Jr.jpg"}
+            src={picture}
             alt="Card"
             
           />

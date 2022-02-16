@@ -1,28 +1,34 @@
-import React from 'react';
-import AboutCard from '../../components/about/about-card';
-
-import './styles.css';
+import React, { useState, useEffect} from "react";
+import AboutCard from "../../components/about/about-card";
+import AboutModal from "../../components/about/about-modal";
+import DbLocal from "./db_local";
+import "./styles.css";
 
 const AboutUs = () => {
+  const [props, setProps] = useState([]);
+
+  useEffect(() => {
+    setProps(DbLocal);
+  }, []);
+
+  const showProps = () => {
+    const request = fetch();
+    const data = request.json();
+    setProps(DbLocal);
+  };
+
   return (
     <div className="about-us">
-      <AboutCard
+      {props.map((data) => (
+        <AboutCard key={data.id} name={data.nome} picture={data.img} />
+      ))}
+      {/* <AboutCard
         key={"Brabra"}
-        name={"Brayan Hen"}
-        picture={"https://i.imgur.com/UfiGsb0.jpg"}
-      />
-      <AboutCard
-        key={"Brabra"}
-        name={"Brayan Hen"}
-        picture={"https://i.imgur.com/UfiGsb0.jpg"}
-      />
-      <AboutCard
-        key={"Brabra"}
-        name={"Brayan Hen"}
-        picture={"https://i.imgur.com/UfiGsb0.jpg"}
-      />
+        name={props.nome}
+        picture={props.img}
+      /> */}
     </div>
   );
 };
-
+console.log(DbLocal)
 export default AboutUs;
