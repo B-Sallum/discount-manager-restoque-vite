@@ -1,18 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+
 import api from "../../auth/api";
 import { FaFileExcel } from "react-icons/fa";
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { useProductsContext } from "../../contexts/products-list";
+import Spinner from "../../shared/loaders/spinner";
 
 const SendExcel = () => {
 
+  const { loadProducts } = useProductsContext();
+
   const [modal, setModal] = useState(false);
   const [file, setFile] = useState('');
+  const [spinner, setSpinner] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", file)
-    api.post("/upload/sendfile", formData);
+    api.post("/upload/sendfile", formData)
+      .then(() => {
+        setSpinner(true);
+        setTimeout(() => {
+          setSpinner(false);
+          setModal(false);
+          setFile('');
+          loadProducts();
+        }, 5000);
+      });
   };
 
   return (
@@ -37,6 +52,9 @@ const SendExcel = () => {
                     Enviar
                   </button>
                 </form>
+                {
+                  spinner ? <Spinner /> : null
+                }
                 <AiFillCloseCircle
                   className="close-modal"
                   onClick={() => {

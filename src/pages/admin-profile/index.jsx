@@ -3,7 +3,7 @@ import './styles.css';
 
 const AdminProfile = () => {
   return (
-    <div>About Us in a minute</div>
+    <div>Painel do Administrador</div>
   );
 };
 
