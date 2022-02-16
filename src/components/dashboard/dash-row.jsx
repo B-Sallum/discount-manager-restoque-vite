@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { FaBan, FaEdit } from 'react-icons/fa';
+import { FaPause, FaPlay, FaEdit } from 'react-icons/fa';
 import { useSwitchContext } from "../../contexts/switch-product-context";
+import ProductEdit from "../product/product-edit";
 
 import './styles.css';
 
@@ -28,14 +29,14 @@ const DashRow = (product) => {
           <button className="actions"
             onClick={handleSwitch}
           >
-            <FaBan />
+            {
+              product.active ? <FaPause /> : <FaPlay />
+            }
           </button>
-
-          <button className="actions"
-
-          >
+          <button className="actions">
             <FaEdit />
-          </button>
+          </button>         
+          
         </td>
         <td className="monospace-font">
           {product.code}

@@ -10,14 +10,18 @@ import John from '../../shared/img/logo-john.png';
 import Lelis from '../../shared/img/logo-lelis.png';
 import Rosa from '../../shared/img/logo-rosa.png';
 import { AiFillCloseCircle } from 'react-icons/ai';
-import { FaPlus } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 import './styles.css';
 
-const ProductAdd = () => {
+const ProductEdit = (editCode) => {
+
+  console.log(editCode);
 
   const { loadProducts } = useProductsContext();
 
   const [modal, setModal] = useState(false);
+
+  setModal(true);
 
   const [code, setCode] = useState('');
   const [name, setName] = useState('');
@@ -56,9 +60,6 @@ const ProductAdd = () => {
 
   return (
     <>
-      <button className="flex-ctr" onClick={() => setModal(true)}>
-        <FaPlus /> Adicionar produto
-      </button>
       {
         modal ? (
           <div className="modal-bg">
@@ -189,4 +190,4 @@ const ProductAdd = () => {
   );
 };
 
-export default ProductAdd;
+export default ProductEdit;

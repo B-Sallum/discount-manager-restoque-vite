@@ -38,6 +38,7 @@ const Dashboard = () => {
             setSearch(event.target.value)
           }}
         />
+        
         <AddProduct />
         <SendExcel />
       </div>
