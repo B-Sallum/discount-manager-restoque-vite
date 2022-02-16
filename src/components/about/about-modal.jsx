@@ -25,10 +25,6 @@ const AboutModal = ({ showAbout, setShowAbout }) => {
                 alt="Brabala apenas"
               />
               <div className="infos">
-                <h2></h2>
-                <p>
-                 
-                </p>
                 <div className="infos1">
                   <a href="">
                     <FaInstagram />

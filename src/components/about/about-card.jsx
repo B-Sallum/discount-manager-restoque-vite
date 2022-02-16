@@ -15,7 +15,7 @@ const AboutCard = ({ name, picture}) => {
         <button className="card-container" onClick={openAbout}>
           <img
             className="card-pic"
-            src={picture}
+            src={"https://i.imgur.com/ukbN5Jr.jpg"}
             alt="Card"
             
           />

@@ -1,9 +1,17 @@
 import React from 'react';
 
 import { FaBan, FaEdit } from 'react-icons/fa';
+import { useSwitchContext } from "../../contexts/switch-product-context";
+
 import './styles.css';
 
 const DashRow = (product) => {
+
+  const { setSwitchProduct } = useSwitchContext();
+
+  const handleSwitch = () => {
+    setSwitchProduct(product.code);
+  };
 
   const formatValue = (value) => {
     const valueFormatted = value.toLocaleString("pt-BR", {
@@ -16,10 +24,16 @@ const DashRow = (product) => {
     <>
       <tr className="dash-row" key={product.code}>     
         <td className="dash-actions">
-          <button className="actions">
+
+          <button className="actions"
+            onClick={handleSwitch}
+          >
             <FaBan />
           </button>
-          <button className="actions">
+
+          <button className="actions"
+
+          >
             <FaEdit />
           </button>
         </td>

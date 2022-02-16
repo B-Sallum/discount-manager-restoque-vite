@@ -46,14 +46,14 @@ const Dashboard = () => {
           <table>
             <thead className="table-top">
               <tr className="table-top">
-              <th className="dash-actions">Ações</th>
+                <th className="dash-actions">Ações</th>
                 <th className="dash-value">Código</th>
                 <th>Nome</th>
                 <th className="dash-value">Valor</th>
                 <th className="dash-value">% OFF</th>
                 <th className="dash-value">Valor OFF</th> 
                 <th className="dash-griffe">Griffe</th>
-                <th className="dash-griffe">Coleção</th>
+                <th>Coleção</th>
               </tr>
             </thead>
             <tbody>

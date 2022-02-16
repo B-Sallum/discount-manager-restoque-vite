@@ -30,5 +30,4 @@ const AboutUs = () => {
     </div>
   );
 };
-console.log(DbLocal)
 export default AboutUs;
