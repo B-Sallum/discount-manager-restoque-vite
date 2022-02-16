@@ -15,7 +15,7 @@ import './styles.css';
 
 const ProductAdd = () => {
 
-  const { setMount } = useProductsContext();
+  const { loadProducts } = useProductsContext();
 
   const [modal, setModal] = useState(false);
 
@@ -48,7 +48,7 @@ const ProductAdd = () => {
     };
     await api.post('/products', newProduct)
       .then(() => {
-        setMount(false);
+        loadProducts();
         setModal(false);
       })
       .catch(() => alert('Ocorreu um erro, por favor tente novamente'));
