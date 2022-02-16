@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { useLoginContext } from "./contexts/login-context";
@@ -19,20 +19,16 @@ const App = () => {
   const { login } = useLoginContext();
   const { switchProduct } = useSwitchContext();
 
-  useEffect(() => {
-    console.log(switchProduct)
-  }, [switchProduct]);
-
   return (
     <BrowserRouter>
       {/* <Splash /> */}
         { login ? <NavBar /> : <LoginMessage /> }
-        <div className="main">
-          <Routes>
-            <Route path="/" element={login ? <Dashboard /> : <Login />} />
-            <Route path="/about" element={<AboutUs />} />
-          </Routes>
-        </div>
+          <div className="main">
+            <Routes>
+              <Route path="/" element={login ? <Dashboard /> : <Login />} />
+              <Route path="/about" element={<AboutUs />} />
+            </Routes>
+          </div>
         { switchProduct ? <ProductSwitch /> : null}
       <Footer />
     </BrowserRouter>
