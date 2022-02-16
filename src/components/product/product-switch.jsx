@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useSwitchContext } from "../../contexts/switch-product-context";
-import api from "../../auth/api";
 
+import api from "../../auth/api";
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { FaPause, FaPlay } from 'react-icons/fa';
 import { useProductsContext } from "../../contexts/products-list";
+import { useSwitchContext } from "../../contexts/product-switch";
 import Spinner from "../../shared/loaders/spinner";
 
 const ProductSwitch = () => {
@@ -26,7 +26,7 @@ const ProductSwitch = () => {
     if (product.active) {
       setProductActive('ATIVO');
     } else {
-      setProductActive('DESATIVADO');
+      setProductActive('PAUSADO');
     }
   }, []);
 

@@ -1,17 +1,21 @@
 import React from 'react';
 
 import { FaPause, FaPlay, FaEdit } from 'react-icons/fa';
-import { useSwitchContext } from "../../contexts/switch-product-context";
-import ProductEdit from "../product/product-edit";
+import { useEditContext } from "../../contexts/product-edit";
+import { useSwitchContext } from "../../contexts/product-switch";
 
 import './styles.css';
 
 const DashRow = (product) => {
 
   const { setSwitchProduct } = useSwitchContext();
-
   const handleSwitch = () => {
     setSwitchProduct(product.code);
+  };
+
+  const { setEditProduct } = useEditContext();
+  const handleEdit = () => {
+    setEditProduct(product.code);
   };
 
   const formatValue = (value) => {
@@ -33,7 +37,8 @@ const DashRow = (product) => {
               product.active ? <FaPause /> : <FaPlay />
             }
           </button>
-          <button className="actions">
+          <button className="actions"
+            onClick={handleEdit}>
             <FaEdit />
           </button>         
           
