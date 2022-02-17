@@ -11,7 +11,7 @@
   align-items: center;
 }
 
-.brayan-btn {
+.btn-about {
   width: 800px;
   height: 500px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
@@ -22,7 +22,7 @@
   border-radius: 10px;
 }
 
-.xambra {
+.modal_us {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +30,7 @@
   
 }
 
-.brabala_pic {
+.group_gif {
   width: 40vw;
   height: 20vw;
   background: #000000;
@@ -57,7 +57,7 @@ p {
   padding: 0.6rem;
 }
 
-.chama {
+.set_all {
   display: flex;
   justify-content: center;
   align-items: center;
