@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Logo from '../img/logo-restoque.png';
 import { FaSignOutAlt, FaHome, FaSlidersH } from "react-icons/fa";
 import './styles.css';
@@ -27,7 +26,7 @@ function NavBar() {
           </div>
         </button>
 
-        <button onClick={() => navigate("/")}>
+        <button onClick={() => navigate("/adm")}>
           <div className="flex-ctr">
             <FaSlidersH />
             Painel Administrativo

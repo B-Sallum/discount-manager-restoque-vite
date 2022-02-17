@@ -15,6 +15,7 @@ import AboutUs from './pages/about-us';
 // import Splash from "./shared/loaders/splash";
 
 import './App.css';
+import AdminProfile from './pages/admin-profile';
 
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={login ? <Dashboard /> : <Login />} />
               <Route path="/about" element={<AboutUs />} />
+              <Route path="/adm" element={<AdminProfile />} />
             </Routes>
           </div>
         { switchProduct ? <ProductSwitch /> : null}
