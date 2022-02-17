@@ -1,38 +1,41 @@
 import React from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa"
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 import "./styles.css";
 
-const AboutModal = ({ showAbout, setShowAbout }) => {
+const AboutModal = ({
+  apelido,
+  gif,
+  ig,
+  linkedin,
+  github,
+  texto,
+  showAbout,
+  setShowAbout
+}) => {
   return (
     <>
       {showAbout ? (
         <div className="sobre">
-          <button className="brayan-btn" showAbout={showAbout}>
+          <button className="brayan-btn">
             <AiFillCloseCircle
               aria-label="close modal"
               className="close-modal"
               onClick={() => setShowAbout(false)}
             />
             <div className="xambra">
-              <img
-                className="brabala_pic"
-                src={
-                  "https://media4.giphy.com/media/kX7OWl40hcz6RSYyjN/giphy.gif?cid=ecf05e47eiiihdzumnegnx7blgyq2wvja0gm5u5uziamzx7n&rid=giphy.gif&ct=g"
-                }
-                height="170"
-                width={420}
-                alt="Brabala apenas"
-              />
+              <img className="brabala_pic" src={gif} alt={apelido} />
+              <h2>{apelido}</h2>
               <div className="infos">
+                <p>{texto}</p>
                 <div className="infos1">
-                  <a href="">
+                  <a href={ig}>
                     <FaInstagram />
                   </a>
-                  <a href="">
+                  <a href={linkedin}>
                     <FaLinkedin />
                   </a>
-                  <a href="">
+                  <a href={github}>
                     <FaGithub />
                   </a>
                 </div>

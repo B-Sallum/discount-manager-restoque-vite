@@ -9,7 +9,7 @@ const DbLocal = [
     insta: "https://www.instagram.com/chocottone_/",
     github: "https://github.com/brabrahen",
     gif: "https://media4.giphy.com/media/kX7OWl40hcz6RSYyjN/giphy.gif?cid=ecf05e47eiiihdzumnegnx7blgyq2wvja0gm5u5uziamzx7n&rid=giphy.gif&ct=g",
-    img: "https://i.imgur.com/ukbN5Jr.jpg",
+    img: "https://i.imgur.com/FtNduMw.jpg",
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const DbLocal = [
     insta: "https://www.instagram.com/ofc_henriquecps/",
     github: "https://github.com/PedroCod",
     gif: "gif Pedro",
-    img: "https://i.imgur.com/GiJaYaF.jpg",
+    img: "https://i.imgur.com/bM315bV.jpg",
   },
 ];
 

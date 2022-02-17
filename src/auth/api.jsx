@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const apis = {
-  // development: "https://nest-postgres-server.herokuapp.com/",
-  development: "http://localhost:3333/",
+  development: "https://nest-postgres-server.herokuapp.com/",
+  // development: "http://localhost:3333/",
   production: "",
 };
 
