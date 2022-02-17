@@ -17,14 +17,14 @@ const AboutModal = ({
     <>
       {showAbout ? (
         <div className="sobre">
-          <button className="brayan-btn">
+          <button className="btn-about">
             <AiFillCloseCircle
               aria-label="close modal"
               className="close-modal"
               onClick={() => setShowAbout(false)}
             />
-            <div className="xambra">
-              <img className="brabala_pic" src={gif} alt={apelido} />
+            <div className="modal_us">
+              <img className="group_gif" src={gif} alt={apelido} />
               <h2>{apelido}</h2>
               <div className="infos">
                 <p>{texto}</p>
