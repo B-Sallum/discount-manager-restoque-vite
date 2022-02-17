@@ -5,78 +5,96 @@ import api from "../../auth/api";
 import "./styles.css";
 
 const AddUser = () => {
-  const [user, setUser] = useState(false);
+
+  const [modal, setModal] = useState(false);
+
+  //adicionar onChange nos campos HTML
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
+  const [passConfirm, setPassConfirm] = ('');
+  const [role, setRole] = useState('');
 
   const newUser = {
-    name: nome,
+    name: name,
     email: email,
     pass: pass,
     role: role,
-    active: active,
+    active: true,
   };
 
+  //confirmar se pass é igual a passConfirm mas não enviar ao banco (apenas verificar por aqui)
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (nome === "" || email === "" || pass === "") {
+    if (name === "" || email === "" || pass === "") {
       return alert("Complete os dados corretamente");
     }
     await api
       .post("/adm", newUser)
       .then(() => {
-        setUser(false);
+        setModal(false);
       })
       .catch(() => alert("Ocorreu um erro, por favor tente novamente"));
   };
 
+  //os atributos RADIO não estão funcionais
+  //o modal não está fechando
   return (
     <>
-      <button className="flex-ctr" onClick={() => setUser(true)}>
+      <button className="flex-ctr" onClick={() => setModal(true)}>
         <FaUserPlus /> Adicionar usuário
       </button>
-      {user ? (
-        <div className="modal-bg">
-          <form
-            className="wrap-modal card-add flex-ctr col"
-            onSubmit={handleSubmit}
-          >
-            <div className="flex-ctr">
-              <label>Nome:</label>
-              <input type={"text"} required placeholder="Digite o nome" />
-            </div>
-            <div className="flex-ctr">
-              <label>Email:</label>
-              <input
-                type={"text"}
-                required
-                placeholder="Digite o email corporativo"
-              />
-            </div>
-            <div className="flex-ctr">
-              <label>Senha:</label>
-              <input type={"password"} required placeholder="Digite a senha" />
-            </div>
-            <div className="flex-ctr">
-              <label>Função</label>
-              <input type={"text"} required placeholder="Digite a função" />
-            </div>
-            <div className="flex-ctr">
-              <h2>Tipos de usuário</h2>
-              <label for={"adm"}>Administrador</label>
-              <input type={"radio"} id={"adm"} required />
-              <label for={"funcionario"}>Funcionário</label>
-              <input type={"radio"} id={"funcionario"} required />
-            </div>
-            <buton type="submit">Adicionar</buton>
+      {
+        modal ? (
+          <div className="modal-bg">
+            <form
+              className="wrap-modal card-add flex-ctr col"
+              onSubmit={handleSubmit}
+            >
+              {/* Padronizar os inputs para favorecer a manutenção */}
+              <div className="flex-ctr">
+                <label>Nome:</label>
+                <input required
+                  type={"text"}
+                  placeholder="Digite o nome"
+                />
+              </div>
 
-            <AiFillCloseCircle
-              className="close-modal"
-              onclick={() => {
-                setUser(false);
-              }}
-            />
-          </form>
-        </div>
-      ) : null}
+              <div className="flex-ctr">
+                <label>Email:</label>
+                <input
+                  type={"text"}
+                  required
+                  placeholder="Digite o email corporativo"
+                />
+              </div>
+              <div className="flex-ctr">
+                <label>Senha:</label>
+                <input type={"password"} required placeholder="Digite a senha" />
+              </div>
+              <div className="flex-ctr">
+                <label>Função</label>
+                <input type={"text"} required placeholder="Digite a função" />
+              </div>
+              <div className="flex-ctr">
+                <h2>Tipos de usuário</h2>
+                <label for={"adm"}>Administrador</label>
+                <input type={"radio"} id={"adm"} required />
+                <label for={"funcionario"}>Funcionário</label>
+                <input type={"radio"} id={"funcionario"} required />
+              </div>
+              <buton type="submit">Adicionar</buton>
+
+              <AiFillCloseCircle
+                className="close-modal"
+                onclick={() => {
+                  setModal(false);
+                }}
+              />
+            </form>
+          </div>
+        ) : null
+      }
     </>
   );
 };
