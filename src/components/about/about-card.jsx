@@ -19,7 +19,7 @@ const AboutCard = ({
   };
 
   return (
-    <div className="chama">
+    <div className="set_all">
       <div className="quadro">
         <button className="card-container" onClick={openAbout}>
           <img className="card-pic" src={picture} alt="Card" />
