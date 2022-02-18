@@ -44,6 +44,7 @@ td {
   display: flex;
   justify-content: center;
   min-width: 70px;
+  max-width: 70px;
   padding: 5px;
   width: 70px;
 }

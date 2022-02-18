@@ -21,12 +21,12 @@ const SendExcel = () => {
     excelFile.append("file", file)
     api.post("/file/upload", excelFile)
       .then(() => {
-        // setTimeout(() => { //implementação momentânea, aguardando o async return do back
+        setTimeout(() => {
           setSpinner(false);
           setModal(false);
           setFile('');
           loadProducts();
-        // }, 7000);
+        }, 5000);
       });
   };
 

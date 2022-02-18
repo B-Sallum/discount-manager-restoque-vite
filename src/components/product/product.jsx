@@ -28,11 +28,6 @@ const Product = () => {
   const [discount, setDiscount] = useState(0);
   const [finalPrice, setFinalPrice] = useState(0);
 
-  const calcFinalPrice = (discountValue) => {
-    const newFinalPrice = (price / 100) * (100 - discountValue);
-    setFinalPrice(newFinalPrice);
-  };
- 
   useEffect(() => {
     if (edit) {
       api.get(`/products/${edit}`)
@@ -64,15 +59,29 @@ const Product = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (griffe === '') {
-      return alert('Por favor escolha a marca')
-    };
-    await api.post('/products', newProduct)
+    if (edit) {
+      await api.patch(`/products/${edit}`, newProduct)
       .then(() => {
         loadProducts();
         setModal(null);
       })
       .catch(() => alert('Ocorreu um erro, por favor tente novamente'));
+    } else {
+      if (griffe === '') {
+        return alert('Por favor escolha a marca')
+      };
+      await api.post('/products', newProduct)
+        .then(() => {
+          loadProducts();
+          setModal(null);
+        })
+        .catch(() => alert('Ocorreu um erro, por favor tente novamente'));
+    }
+  };
+
+  const calcFinalPrice = (discountValue) => {
+    const newFinalPrice = (price / 100) * (100 - discountValue);
+    setFinalPrice(newFinalPrice.toFixed(2));
   };
 
   return (
@@ -198,7 +207,9 @@ const Product = () => {
                     type="number"
                     step="0.01"
                     placeholder="Valor com desconto"
-                    onChange={e => setFinalPrice(e.target.value)}
+                    onChange={e => {
+                      setFinalPrice(e.target.value);
+                    }}
                     value={finalPrice}
                   />
                 </div>
