@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import api from '../../auth/api';
 
 import { useProductsContext } from "../../contexts/products-list";
@@ -16,9 +16,9 @@ import './styles.css';
 
 const Product = () => {
 
+  const [modal, setModal] = useState(false);
   const { loadProducts } = useProductsContext();
-
-  const { product, setProduct } = useProductContext();
+  const { product, setProduct, edit, setEdit } = useProductContext();
 
   const [code, setCode] = useState('');
   const [name, setName] = useState('');
@@ -33,6 +33,23 @@ const Product = () => {
     const newFinalPrice = (price / 100) * (100 - discountValue);
     setFinalPrice(newFinalPrice);
   };
+ 
+  useEffect(() => {
+    if (product) {
+      setCode(product.code);
+      setName(product.name);
+      setDescription(product.description);
+      setCollection(product.collection);
+      setGriffe(product.griffe);
+      setPrice(product.price);
+      setDiscount(product.discount);
+      setFinalPrice(product.finalPrice);
+    }
+  }, [product]);
+
+  console.log(`product ` + product);
+  console.log(`modal ` + modal);
+  console.log(`edit ` + edit);
 
   const newProduct = {
     code: code,
@@ -55,18 +72,18 @@ const Product = () => {
     await api.post('/products', newProduct)
       .then(() => {
         loadProducts();
-        setModal(false);
+        setModal(null);
       })
       .catch(() => alert('Ocorreu um erro, por favor tente novamente'));
   };
 
   return (
     <>
-      <button className="flex-ctr" onClick={() => setProduct('true')}>
+      <button className="flex-ctr" onClick={() => setModal(true)}>
         <FaPlus /> Adicionar produto
       </button>
       {
-        product ? (
+        modal || edit ? (
           <div className="modal-bg">
             <form className="wrap-modal card-add flex-ctr col"
             onSubmit={handleSubmit}>
@@ -115,6 +132,7 @@ const Product = () => {
                   <input required type="text"
                     placeholder="12.12.1234"
                     onChange={e => setCode(e.target.value)}
+                    value={edit ? code : null}
                   />
                 </div>
 
@@ -122,6 +140,7 @@ const Product = () => {
                   <label>Coleção</label>
                   <input required type="text"
                     onChange={e => setCollection(e.target.value)}
+                    value={edit ? collection : null}
                   />
                 </div>
               </div>
@@ -132,6 +151,7 @@ const Product = () => {
                   className="product-name"
                   placeholder="BODY BO.BÔ TRICOT ISADORA FEMININO"
                   onChange={e => setName(e.target.value)}
+                  value={edit ? name : null}
                 />
               </div>
 
@@ -140,6 +160,7 @@ const Product = () => {
                 <textarea required type="text"
                   placeholder="Confeccionado em tricot com detalhes vazados, o Body possui caimento ajustado, decote um ombro só, pala frontal com leve babado, manga longa e parte inferior com fechamento por botões de pressão. "
                   onChange={e => setDescription(e.target.value)}
+                  value={edit ? description : null}
                 />
               </div>
 
@@ -152,6 +173,7 @@ const Product = () => {
                     step="0.01"
                     placeholder="Valor original"
                     onChange={e => setPrice(e.target.value)}
+                    value={edit ? price : null}
                   />
                 </div>
 
@@ -167,6 +189,7 @@ const Product = () => {
                         setDiscount(e.target.value);
                         calcFinalPrice(e.target.value);
                       }}
+                    value={edit ? discount : null}
                   />
                 </div>
 
@@ -178,7 +201,7 @@ const Product = () => {
                     step="0.01"
                     placeholder="Valor com desconto"
                     onChange={e => setFinalPrice(e.target.value)}
-                    value={finalPrice.toFixed(2)}
+                    value={edit ? finalPrice : null}
                   />
                 </div>
                 
@@ -197,7 +220,9 @@ const Product = () => {
                   setPrice('');
                   setDiscount('');
                   setFinalPrice('');
-                  setProduct(null);
+                  setEdit(null);
+                  setModal(false);
+                  setProduct(undefined);
                 }}
               />
             </form>

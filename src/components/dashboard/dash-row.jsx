@@ -13,9 +13,9 @@ const DashRow = (product) => {
     setSwitchProduct(product.code);
   };
 
-  const { setProduct } = useProductContext();
+  const { setEdit } = useProductContext();
   const handleEdit = () => {
-    setProduct(product.code);
+    setEdit(product.code);
   };
 
   const formatValue = (value) => {
