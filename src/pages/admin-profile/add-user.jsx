@@ -67,7 +67,7 @@ const AddUser = () => {
                 required
                 type={"text"}
                 placeholder="Digite o nome"
-                name="name"
+                value={name}
               />
             </div>
 
@@ -77,7 +77,7 @@ const AddUser = () => {
                 required
                 type={"text"}
                 placeholder="Digite o email corporativo"
-                name="email"
+                value={email}
               />
             </div>
             <div className="flex-ctr">
@@ -86,7 +86,7 @@ const AddUser = () => {
                 required
                 type={"password"}
                 placeholder="Digite a senha"
-                name="pass"
+                value={pass}
               />
             </div>
             <div className="flex-ctr">
@@ -95,7 +95,7 @@ const AddUser = () => {
                 required
                 type={"password"}
                 placeholder="Confirme a senha"
-                name="passConfirm"
+                value={passConfirm}
               />
             </div>
             {/* <div className="flex-ctr">
@@ -104,14 +104,14 @@ const AddUser = () => {
                 required
                 type={"text"}
                 placeholder="Digite a função"
-                name="role"
+                value="role"
               />
             </div> */}
             <div className="flex-ctr">
               <h2>
                 <label>Tipos de usuário</label>
               </h2>
-              <select name="role">
+              <select value={role}>
                 <option value="Administrador">Administrador</option>
                 <option value="Funcionário">Funcionário</option>
               </select>
