@@ -1,0 +1,17 @@
+input::placeholder {
+  opacity: 0.5;
+}
+
+.btn-add {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  font-size: x-large;
+  padding: 10px 15px;
+}
+
+select {
+    width: 15vw;
+    height: 3vw;
+    border-bottom: 2px solid #cd933e;
+}
