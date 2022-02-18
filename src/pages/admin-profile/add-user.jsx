@@ -14,7 +14,6 @@ const AddUser = () => {
   const [passConfirm, setPassConfirm] = useState("");
   const [role, setRole] = useState("");
 
-  //confirmar se pass é igual a passConfirm mas não enviar ao banco (apenas verificar por aqui)
   const handleSubmit = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -47,8 +46,6 @@ const AddUser = () => {
       .catch(() => alert("Ocorreu um erro, por favor tente novamente"));
   };
 
-  //os atributos RADIO não estão funcionais
-  //o modal não está fechando
   return (
     <>
       <button className="flex-ctr" onClick={() => setModalUser(true)}>
@@ -98,15 +95,7 @@ const AddUser = () => {
                 value={passConfirm}
               />
             </div>
-            {/* <div className="flex-ctr">
-              <label>Função</label>
-              <input
-                required
-                type={"text"}
-                placeholder="Digite a função"
-                value="role"
-              />
-            </div> */}
+
             <div className="flex-ctr">
               <h2>
                 <label>Tipos de usuário</label>
@@ -116,6 +105,16 @@ const AddUser = () => {
                 <option value="Funcionário">Funcionário</option>
               </select>
             </div>
+            <div className="flex-ctr">
+              <h2>
+                <label>Usuário ativo</label>
+              </h2>
+              <select >
+                <option value={true}>Sim</option>
+                <option  value={false}>Não</option>
+              </select>
+            </div>
+
             <button className="btn-add" type="submit">
               Adicionar
             </button>
@@ -127,6 +126,7 @@ const AddUser = () => {
                 setEmail('');
                 setPass('');
                 setPassConfirm('');
+                setRole('');
                 setRole(false);
                 setModalUser(false);
               }}

@@ -1,3 +1,19 @@
+.desk {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  margin: 1% 10% 5%;
+  align-items: center;
+  width: 80%;
+  height: 6vw;
+  background-color: #000000;
+}
+
+.user-circle {
+  color: white;
+  font-size: 30px;
+  margin-left: 10vw;
+}
 input::placeholder {
   opacity: 0.5;
 }
@@ -6,6 +22,19 @@ input::placeholder {
   background-color: black;
   color: white;
   cursor: pointer;
+  padding: 10px 15px;
+}
+
+.user-name {
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+select {
+  width: 15vw;
+  height: 3vw;
+  border-bottom: 2px solid #cd933e;
   font-size: x-large;
   padding: 10px 15px;
 }
