@@ -5,7 +5,7 @@ import App from './App';
 import { SwitchProvider } from "./contexts/product-switch";
 import { LoginProvider } from "./contexts/login-context";
 import { ProductsProvider } from "./contexts/products-list";
-import { EditProvider } from "./contexts/product-edit";
+import { ProductProvider } from "./contexts/product-modal";
 
 import './index.css';
 
@@ -13,11 +13,11 @@ ReactDOM.render(
   <React.StrictMode>
     <LoginProvider>
       <ProductsProvider>
-        <SwitchProvider>
-          <EditProvider>
+        <ProductProvider>
+          <SwitchProvider>
             <App />
-          </EditProvider>
-        </SwitchProvider>        
+            </SwitchProvider>
+          </ProductProvider>
       </ProductsProvider>
     </LoginProvider>    
   </React.StrictMode>,

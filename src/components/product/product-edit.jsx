@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import api from '../../auth/api';
 
 import { useProductsContext } from "../../contexts/products-list";
-import { useEditContext } from "../../contexts/product-edit";
+import { useEditContext } from "../../contexts/product-modal";
 import Spinner from "../../shared/loaders/spinner";
 
 import Bobo from '../../shared/img/logo-bobo.png';

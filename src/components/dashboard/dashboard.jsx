@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { useProductsContext } from "../../contexts/products-list";
 
-import AddProduct from '../product/product-add';
+import Product from '../product/product';
 import DashRow from './dash-row';
 import Spinner from "../../shared/loaders/spinner";
 import SendExcel from "../product/product-xlsx";
@@ -39,7 +39,7 @@ const Dashboard = () => {
           }}
         />
         
-        <AddProduct />
+        <Product />
         <SendExcel />
       </div>
       {

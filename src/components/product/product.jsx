@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import api from '../../auth/api';
 
 import { useProductsContext } from "../../contexts/products-list";
+import { useProductContext } from "../../contexts/product-modal";
 
 import Bobo from '../../shared/img/logo-bobo.png';
 import Dudalina from '../../shared/img/logo-dudalina.png';
@@ -13,20 +14,25 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import { FaPlus } from "react-icons/fa";
 import './styles.css';
 
-const ProductAdd = () => {
+const Product = () => {
 
   const { loadProducts } = useProductsContext();
 
-  const [modal, setModal] = useState(false);
+  const { product, setProduct } = useProductContext();
 
   const [code, setCode] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [collection, setCollection] = useState('');
   const [griffe, setGriffe] = useState('');
-  const [price, setPrice] = useState('');
-  const [discount, setDiscount] = useState('');
-  const [finalPrice, setFinalPrice] = useState('');
+  const [price, setPrice] = useState(0);
+  const [discount, setDiscount] = useState(0);
+  const [finalPrice, setFinalPrice] = useState(0);
+
+  const calcFinalPrice = (discountValue) => {
+    const newFinalPrice = (price / 100) * (100 - discountValue);
+    setFinalPrice(newFinalPrice);
+  };
 
   const newProduct = {
     code: code,
@@ -56,11 +62,11 @@ const ProductAdd = () => {
 
   return (
     <>
-      <button className="flex-ctr" onClick={() => setModal(true)}>
+      <button className="flex-ctr" onClick={() => setProduct('true')}>
         <FaPlus /> Adicionar produto
       </button>
       {
-        modal ? (
+        product ? (
           <div className="modal-bg">
             <form className="wrap-modal card-add flex-ctr col"
             onSubmit={handleSubmit}>
@@ -155,7 +161,12 @@ const ProductAdd = () => {
                     className="input_number"
                     type="number"
                     placeholder="Desconto"
-                    onChange={e => setDiscount(e.target.value)}
+                    max="50"
+                    onChange={
+                      e => {
+                        setDiscount(e.target.value);
+                        calcFinalPrice(e.target.value);
+                      }}
                   />
                 </div>
 
@@ -167,6 +178,7 @@ const ProductAdd = () => {
                     step="0.01"
                     placeholder="Valor com desconto"
                     onChange={e => setFinalPrice(e.target.value)}
+                    value={finalPrice.toFixed(2)}
                   />
                 </div>
                 
@@ -177,8 +189,15 @@ const ProductAdd = () => {
               <AiFillCloseCircle
                 className="close-modal"
                 onClick={() => {
+                  setCode('');
+                  setName('');
+                  setDescription('');
+                  setCollection('');
                   setGriffe('');
-                  setModal(false);
+                  setPrice('');
+                  setDiscount('');
+                  setFinalPrice('');
+                  setProduct(null);
                 }}
               />
             </form>
@@ -189,4 +208,4 @@ const ProductAdd = () => {
   );
 };
 
-export default ProductAdd;
+export default Product;

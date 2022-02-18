@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { FaPause, FaPlay, FaEdit } from 'react-icons/fa';
-import { useEditContext } from "../../contexts/product-edit";
+import { useProductContext } from "../../contexts/product-modal";
 import { useSwitchContext } from "../../contexts/product-switch";
 
 import './styles.css';
@@ -13,9 +13,9 @@ const DashRow = (product) => {
     setSwitchProduct(product.code);
   };
 
-  const { setEditProduct } = useEditContext();
+  const { setProduct } = useProductContext();
   const handleEdit = () => {
-    setEditProduct(product.code);
+    setProduct(product.code);
   };
 
   const formatValue = (value) => {
