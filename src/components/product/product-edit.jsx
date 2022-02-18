@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import api from '../../auth/api';
 
 import { useProductsContext } from "../../contexts/products-list";
 import { useEditContext } from "../../contexts/product-edit";
+import Spinner from "../../shared/loaders/spinner";
 
 import Bobo from '../../shared/img/logo-bobo.png';
 import Dudalina from '../../shared/img/logo-dudalina.png';
@@ -12,7 +13,6 @@ import Lelis from '../../shared/img/logo-lelis.png';
 import Rosa from '../../shared/img/logo-rosa.png';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import './styles.css';
-
 
 const ProductEdit = () => {
 
@@ -28,25 +28,39 @@ const ProductEdit = () => {
   const [discount, setDiscount] = useState('');
   const [finalPrice, setFinalPrice] = useState('');
 
-  const newProduct = {
-    code: code,
-    name: name,
-    description: description,
-    collection: collection,
-    griffe: griffe,
-    stock: true,
-    active: true,
-    price: parseFloat(price),
-    discount: parseFloat(discount),
-    finalPrice: parseFloat(finalPrice)
-  };
+  useEffect(() => {
+    api.get(`/products/${editProduct}`)
+    .then((res) => {
+      const product = res.data;
+      setCode(product.code);
+      setName(product.name);
+      setDescription(product.description);
+      setCollection(product.collection);
+      setGriffe(product.griffe);
+      setPrice(product.price);
+      setDiscount(product.discount);
+      setFinalPrice(product.finalPrice);
+    })
+  }, []);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     if (griffe === '') {
       return alert('Por favor escolha a marca')
     };
-    await api.post('/products', newProduct)
+    const newProduct = {
+      code: code,
+      name: name,
+      description: description,
+      collection: collection,
+      griffe: griffe,
+      stock: true,
+      active: true,
+      price: parseFloat(price),
+      discount: parseFloat(discount),
+      finalPrice: parseFloat(finalPrice)
+    };
+    api.patch(`/products/${code}`, newProduct)
       .then(() => {
         loadProducts();
         setModal(false);
@@ -56,9 +70,10 @@ const ProductEdit = () => {
 
   return (
     <div className="modal-bg">
+
       <form className="wrap-modal card-add flex-ctr col"
       onSubmit={handleSubmit}>
-
+  
         <div className="flex-ctr griffe wrap">
           <img src={Bobo} alt="Logo Bo.Bô"
             className="img-input"
@@ -101,8 +116,8 @@ const ProductEdit = () => {
           <div className="div-input">
             <label>Código</label>
             <input required type="text"
-              placeholder="12.12.1234"
               onChange={e => setCode(e.target.value)}
+              value={code}
             />
           </div>
 
@@ -110,6 +125,7 @@ const ProductEdit = () => {
             <label>Coleção</label>
             <input required type="text"
               onChange={e => setCollection(e.target.value)}
+              value={collection}
             />
           </div>
         </div>
@@ -118,16 +134,16 @@ const ProductEdit = () => {
           <label>Nome</label>
           <input required type="text"
             className="product-name"
-            placeholder="BODY BO.BÔ TRICOT ISADORA FEMININO"
             onChange={e => setName(e.target.value)}
+            value={name}
           />
         </div>
 
         <div className="div-input">
           <label>Descrição</label>
           <textarea required type="text"
-            placeholder="Confeccionado em tricot com detalhes vazados, o Body possui caimento ajustado, decote um ombro só, pala frontal com leve babado, manga longa e parte inferior com fechamento por botões de pressão. "
             onChange={e => setDescription(e.target.value)}
+            value={description}
           />
         </div>
 
@@ -138,8 +154,8 @@ const ProductEdit = () => {
               className="input_number"
               type="number"
               step="0.01"
-              placeholder="Valor original"
               onChange={e => setPrice(e.target.value)}
+              value={price}
             />
           </div>
 
@@ -148,8 +164,8 @@ const ProductEdit = () => {
             <input required
               className="input_number"
               type="number"
-              placeholder="Desconto"
               onChange={e => setDiscount(e.target.value)}
+              value={discount}
             />
           </div>
 
@@ -159,8 +175,8 @@ const ProductEdit = () => {
               className="input_number"
               type="number"
               step="0.01"
-              placeholder="Valor com desconto"
               onChange={e => setFinalPrice(e.target.value)}
+              value={finalPrice}
             />
           </div>
           

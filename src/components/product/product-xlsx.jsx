@@ -16,17 +16,17 @@ const SendExcel = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSpinner(true);
     const excelFile = new FormData();
     excelFile.append("file", file)
     api.post("/file/upload", excelFile)
       .then(() => {
-        setSpinner(true);
-        setTimeout(() => { //implementação momentânea, aguardando o async return do back
+        // setTimeout(() => { //implementação momentânea, aguardando o async return do back
           setSpinner(false);
           setModal(false);
           setFile('');
           loadProducts();
-        }, 7000);
+        // }, 7000);
       });
   };
 
