@@ -14,7 +14,6 @@
   font-size: 30px;
   margin-left: 10vw;
 }
-
 input::placeholder {
   opacity: 0.5;
 }
@@ -36,4 +35,12 @@ select {
   width: 15vw;
   height: 3vw;
   border-bottom: 2px solid #cd933e;
+  font-size: x-large;
+  padding: 10px 15px;
+}
+
+select {
+    width: 15vw;
+    height: 3vw;
+    border-bottom: 2px solid #cd933e;
 }
