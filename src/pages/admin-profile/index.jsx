@@ -1,6 +1,5 @@
 import React from "react";
-import AddUser from "./add-user";
-import userDashboard from "./user-table/user-dashboard";
+
 import { FaUserCircle } from "react-icons/fa";
 import "./styles.css";
 
@@ -11,9 +10,7 @@ const AdminProfile = () => {
         <div className="user-name">
           <FaUserCircle className="user-circle" /> Nome do usuario
         </div>
-        <AddUser />
       </div>
-      <userDashboard />
     </>
   );
 };

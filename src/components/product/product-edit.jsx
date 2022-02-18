@@ -43,7 +43,7 @@ const ProductEdit = () => {
     })
   }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (griffe === '') {
       return alert('Por favor escolha a marca')
@@ -60,7 +60,7 @@ const ProductEdit = () => {
       discount: parseFloat(discount),
       finalPrice: parseFloat(finalPrice)
     };
-    api.patch(`/products/${code}`, newProduct)
+    await api.patch(`/products/${code}`, newProduct)
       .then(() => {
         loadProducts();
         setModal(false);
