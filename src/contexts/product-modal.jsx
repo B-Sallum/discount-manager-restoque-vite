@@ -1,25 +1,14 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-
-import api from "../auth/api";
+import React, { createContext, useContext, useState } from 'react';
 
 const ProductContext = createContext({});
 
 export const ProductProvider = ({ children }) => {
   
-  const [product, setProduct] = useState(undefined);
+  const [modal, setModal] = useState(false);
   const [edit, setEdit] = useState(false);
 
-  useEffect(() => {
-    if (edit) {
-      api.get(`/products/${edit}`)
-      .then((res) => {
-        setProduct(res.data);
-      });
-    }
-  }, [edit])
-
   return (
-    <ProductContext.Provider value={{ product, setProduct, edit, setEdit }} >
+    <ProductContext.Provider value={{ modal, setModal, edit, setEdit }} >
       {children}
     </ProductContext.Provider>
   );

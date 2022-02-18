@@ -13,8 +13,9 @@ const DashRow = (product) => {
     setSwitchProduct(product.code);
   };
 
-  const { setEdit } = useProductContext();
+  const { setModal, setEdit } = useProductContext();
   const handleEdit = () => {
+    setModal(true);
     setEdit(product.code);
   };
 
