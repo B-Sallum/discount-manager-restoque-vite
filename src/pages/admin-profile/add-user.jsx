@@ -116,6 +116,15 @@ const AddUser = () => {
                 <option value="Funcionário">Funcionário</option>
               </select>
             </div>
+            <div className="flex-ctr">
+              <h2>
+                <label>Usuário ativo</label>
+              </h2>
+              <select >
+                <option value={true}>Sim</option>
+                <option  value={false}>Não</option>
+              </select>
+            </div>
             <button className="btn-add" type="submit">
               Adicionar
             </button>
@@ -127,7 +136,7 @@ const AddUser = () => {
                 setEmail('');
                 setPass('');
                 setPassConfirm('');
-                setRole(false);
+                setRole('');
                 setModalUser(false);
               }}
             />
