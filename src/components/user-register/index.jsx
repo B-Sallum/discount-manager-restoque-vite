@@ -88,7 +88,7 @@ const UserRegister = () => {
 
             <AiFillCloseCircle
               className="close-modal"
-              onclick={() => {
+              onClick={() => {
                 setModal(false);
               }}
             />

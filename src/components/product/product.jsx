@@ -4,6 +4,7 @@ import api from '../../auth/api';
 import { useProductsContext } from "../../contexts/products-list";
 import { useProductContext } from "../../contexts/product-modal";
 
+import Spinner from '../../shared/loaders/spinner';
 import Bobo from '../../shared/img/logo-bobo.png';
 import Dudalina from '../../shared/img/logo-dudalina.png';
 import Individual from '../../shared/img/logo-individual.png';
@@ -18,6 +19,7 @@ const Product = () => {
 
   const { loadProducts } = useProductsContext();
   const { modal, setModal, edit, setEdit } = useProductContext();
+  const [spinner, setSpinner] = useState(false);
 
   const [code, setCode] = useState('');
   const [name, setName] = useState('');
@@ -60,20 +62,24 @@ const Product = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (edit) {
+      setSpinner(true);
       await api.patch(`/products/${edit}`, newProduct)
       .then(() => {
         loadProducts();
         setModal(null);
+        setSpinner(false);
       })
       .catch(() => alert('Ocorreu um erro, por favor tente novamente'));
     } else {
       if (griffe === '') {
         return alert('Por favor escolha a marca')
       };
+      setSpinner(true);
       await api.post('/products', newProduct)
         .then(() => {
           loadProducts();
           setModal(null);
+          setSpinner(false);
         })
         .catch(() => alert('Ocorreu um erro, por favor tente novamente'));
     }
@@ -214,13 +220,17 @@ const Product = () => {
                   />
                 </div>
                 
-              </div>          
-
-              <button type="submit">
+              </div>  
+              <div className='flex-ctr'>
                 {
-                  edit ? 'Atualizar' : 'Adicionar'
+                  spinner ? <Spinner /> : (
+                  <button type="submit">
+                  {
+                    edit ? 'Atualizar' : 'Adicionar'
+                  }
+                  </button>)
                 }
-              </button>
+              </div>
 
               <AiFillCloseCircle
                 className="close-modal"
