@@ -44,7 +44,7 @@ const DashRow = (product) => {
           </button>         
           
         </td>
-        <td className="monospace-font">
+        <td className="monospace-font dash-fix">
           {product.code}
         </td>
         <td>

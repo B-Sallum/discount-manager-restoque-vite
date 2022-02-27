@@ -69,7 +69,7 @@ const UserRegister = () => {
             </div>
             <div className='flex-ctr'>
               <label>Confirme a senha</label>
-            <input type="password" name="passConfirm" required
+              <input type="password" name="passConfirm" required
                 onChange={event => setPassConfirm(event.target.value)}
               />
             </div>
@@ -77,13 +77,12 @@ const UserRegister = () => {
               <label>Função</label>
               <input type={"text"} required placeholder="Digite a função" />
             </div>
-            <div className="flex-ctr">
-              <h2>Tipos de usuário</h2>
-              <label for={"adm"}>Administrador</label>
-              <input type={"radio"} id={"adm"} required />
-              <label for={"funcionario"}>Funcionário</label>
-              <input type={"radio"} id={"funcionario"} required />
-            </div>
+            {/* <div className="flex-ctr">
+              <label>Administrador</label>
+              <input type="radio" id="adm" required />
+              <label>Colaborador</label>
+              <input type="radio" id="funcionario" required />
+            </div> */}
             <button type="submit">Adicionar</button>
 
             <AiFillCloseCircle

@@ -221,7 +221,7 @@ const Product = () => {
                 </div>
                 
               </div>  
-              <div className='flex-ctr'>
+              <div className='flex-ctr col'>
                 {
                   spinner ? <Spinner /> : (
                   <button type="submit">
@@ -245,6 +245,7 @@ const Product = () => {
                   setFinalPrice('');
                   setEdit(false);
                   setModal(false);
+                  setSpinner(false);
                 }}
               />
             </form>

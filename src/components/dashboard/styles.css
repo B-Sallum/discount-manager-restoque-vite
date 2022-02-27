@@ -35,11 +35,6 @@ td {
   width: 120px;
 }
 
-.dash-griffe {
-  min-width: 120px;
-  width: 120px;
-}
-
 .dash-actions {
   display: flex;
   justify-content: center;
@@ -54,6 +49,12 @@ td {
   color: #0c0c0c;
   margin: 0px 2px;
   padding: 0px;
+}
+
+.dash-fix {
+  min-width: 120px;
+  max-width: 120px;
+  width: 120px;
 }
 
 .actions:hover {
@@ -80,7 +81,7 @@ td {
 }
 
 .monospace-font {
-  font-family: 'Nova Mono', monospace;
+  font-family: 'Courier Prime', monospace;
   max-width: 120px;
   text-align: center;
 }

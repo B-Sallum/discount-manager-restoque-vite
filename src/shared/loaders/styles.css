@@ -86,10 +86,6 @@
 	        animation: rotate-scale-up 1.5s linear infinite both;
 }
 
-.margin-spinner {
-  margin-top: 10rem;
-}
-
 .spinner {
   height: 100px;
   width: 300px;

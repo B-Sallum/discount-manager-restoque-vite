@@ -5,6 +5,7 @@
 .login-left {
   background-color: black;
   border-radius: 9px 0 0 9px;
+  color: aliceblue;
   height: 80vh;
   max-height: 600px;
   width: 40vw;
@@ -25,4 +26,9 @@
 
 .input-login svg {
   font-size: 2rem;
+}
+
+.msg-valuation {
+  position: absolute;
+  top: 15px;
 }

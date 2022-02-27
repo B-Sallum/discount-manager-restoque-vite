@@ -45,15 +45,15 @@ const Dashboard = () => {
       {
         products ? (
           <table>
-            <thead className="table-top">
-              <tr className="table-top">
+            <thead>
+              <tr>
                 <th className="dash-actions">Ações</th>
-                <th className="dash-value">Código</th>
+                <th className="dash-value dash-fix">Código</th>
                 <th>Nome</th>
                 <th className="dash-value">Valor</th>
                 <th className="dash-value">% OFF</th>
                 <th className="dash-value">Valor OFF</th> 
-                <th className="dash-griffe">Griffe</th>
+                <th className="dash-fix">Griffe</th>
                 <th>Coleção</th>
               </tr>
             </thead>

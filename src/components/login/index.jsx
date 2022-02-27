@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import api from '../../auth/api';
 
 import { useLoginContext } from "../../contexts/login-context";
-import { FaUserTie } from "react-icons/fa";
+import { FaUserTie, FaArrowRight } from "react-icons/fa";
 import { BsFillLockFill } from "react-icons/bs";
+import { AiFillCloseCircle } from 'react-icons/ai';
 import Logo from '../../shared/img/logo-restoque.png';
 import './styles.css';
 
@@ -41,23 +42,27 @@ const Login = () => {
     <section className="modal-bg">
       <div className="wrap-modal">
         <div className="login">
-          <div className="login-left flex-ctr">
+          <div className="login-left flex-ctr col">
             <img
               src={Logo}
               alt="Logo Restoque"
             />
+            <h6>Site desenvolvido com propósitos didáticos</h6>
+            <h6>Todas as informações são fictícias</h6>
           </div>
           <div className="login-right flex-ctr col">
-            <h3>Digite seus dados</h3>
             <form className="form-login flex-ctr col">
+              <h2>Login</h2>
+              <h4>adm@restoque.com.br</h4>
               <div className="input-login flex-ctr">
-                <FaUserTie />
+                <FaUserTie />                
                 <input required type="email"
                   className="email"
                   placeholder="Email corporativo"
                   onChange={(event) => setUser(event.target.value)}
                 />
               </div>
+              <h4>12345678</h4>
               <div className="input-login flex-ctr">
                 <BsFillLockFill />
                 <input required type="password"
@@ -68,7 +73,7 @@ const Login = () => {
               </div>
             </form>
             <button onClick={handleSubmit}>Login</button>
-            <div><h6>Esqueci minha senha</h6></div>
+            <h6>Esqueci minha senha</h6>
           </div>
         </div>
       </div>

@@ -12,10 +12,11 @@ import Dashboard from './components/dashboard/dashboard';
 import Product from "./components/product/product";
 import ProductSwitch from "./components/product/product-switch";
 import AboutUs from './pages/about-us';
-import Splash from "./shared/loaders/splash";
+// import Splash from "./shared/loaders/splash";
 
 import './App.css';
 import AdminProfile from './pages/admin-profile';
+import DashLogs from "./components/dash-log/dash-log";
 
 const App = () => {
 
@@ -25,13 +26,14 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Splash />
+      {/* <Splash /> */}
         { login ? <NavBar /> : <LoginMessage /> }
-          <div className="main">
+          <div className="main scroll">
             <Routes>
               <Route path="/" element={login ? <Dashboard /> : <Login />} />
               <Route path="/about" element={<AboutUs />} />
               <Route path="/adm" element={<AdminProfile />} />
+              <Route path="/logs" element={<DashLogs />} />
             </Routes>
           </div>
         { product ? <Product /> : null }

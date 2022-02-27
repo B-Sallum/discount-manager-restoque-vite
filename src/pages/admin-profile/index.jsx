@@ -1,10 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-import DashLogs from "../../components/dash-log/dash-log";
 import UserRegister from "../../components/user-register";
 import "./styles.css";
 
 const AdminProfile = () => {
+
+  const navigate = useNavigate();
+  
   return (
     <>
       <div className="desk">
@@ -12,7 +15,9 @@ const AdminProfile = () => {
           <UserRegister />
         </div>
         <div className='flex-ctr'>
-          <DashLogs />
+          <button className="flex-ctr" onClick={() => navigate("/logs")}>
+            Mostrar Logs
+          </button>
         </div>
       </div>
     </>
