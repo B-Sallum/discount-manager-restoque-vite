@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 import api from '../../auth/api';
+import Spinner from '../../shared/loaders/spinner';
 
 import { useLoginContext } from "../../contexts/login-context";
-import { FaUserTie, FaArrowRight } from "react-icons/fa";
+import { FaUserTie } from "react-icons/fa";
 import { BsFillLockFill } from "react-icons/bs";
-import { AiFillCloseCircle } from 'react-icons/ai';
 import Logo from '../../shared/img/logo-restoque.png';
 import './styles.css';
 
@@ -15,15 +15,19 @@ const Login = () => {
 
   const [user, setUser] = useState('');
   const [pass, setPass] = useState('');
+  const [spinner, setSpinner] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    setSpinner(true);
 
     const login = { email: user, pass: pass };
 
     api
       .post('/auth/login', login)
       .then((res) => {
+        setSpinner(false);
         const token = res.data.token;
         localStorage.setItem('token', token);
         setLogin(true);
@@ -35,6 +39,7 @@ const Login = () => {
       })
       .catch((err) => {
         alert(err);
+        setSpinner(false);
       });
   };
 
@@ -72,7 +77,13 @@ const Login = () => {
                 /> 
               </div>
             </form>
-            <button onClick={handleSubmit}>Login</button>
+            {
+              spinner ? (
+                <Spinner text={'Autenticando'} />
+              ) : (
+                <button onClick={handleSubmit}>Login</button> 
+              )
+            }
             <h6>Esqueci minha senha</h6>
           </div>
         </div>
